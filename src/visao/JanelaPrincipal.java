@@ -157,6 +157,7 @@ public class JanelaPrincipal extends JFrame {
 				card.show(contentPane, "panelPrincipal");
 			}
 		});
+		
 		botaoVoltar.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		botaoVoltar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/back.png")));
 		botaoVoltar.setHorizontalAlignment(SwingConstants.RIGHT);

@@ -84,7 +84,7 @@ public class Estagiario extends JPanel {
 		panelPrincipal.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
 		panelPrincipal.setBackground(new Color(240, 248, 255));
 		add(panelPrincipal, BorderLayout.CENTER);
-		panelPrincipal.setLayout(new MigLayout("", "[47.00][][264.00,grow][][43.00][254.00,grow][48.00]", "[53.00][36.00][32.00][32.00][32.00][34.00][26.00][35.00][34.00][][][29.00][34.00]"));
+		panelPrincipal.setLayout(new MigLayout("", "[47.00][][264.00,grow][][43.00][254.00,grow][48.00]", "[53.00][36.00][24.00][32.00][24.00][34.00][26.00][35.00][24.00][][][29.00][34.00]"));
 		
 		labelEstagiario = new JLabel("Estagi\u00E1rio");
 		labelEstagiario.setFont(new Font("Segoe UI", Font.BOLD, 30));

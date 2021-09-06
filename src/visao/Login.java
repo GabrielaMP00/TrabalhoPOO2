@@ -40,7 +40,7 @@ public class Login extends JPanel {
 		
 		JLabel lblLogin_Usuario = new JLabel("Usu\u00E1rio: ");
 		lblLogin_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(lblLogin_Usuario, "cell 1 8,alignx left");
+		add(lblLogin_Usuario, "cell 1 8,alignx right");
 		
 		textField_Usuario = new JTextField();
 		textField_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -53,7 +53,7 @@ public class Login extends JPanel {
 		
 		JLabel lblLogin_Senha = new JLabel("Senha: ");
 		lblLogin_Senha.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(lblLogin_Senha, "cell 1 10,alignx left");
+		add(lblLogin_Senha, "cell 1 10,alignx right");
 		
 		btnLogin_Entrar = new JButton("Entrar");
 		btnLogin_Entrar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/check.png")));

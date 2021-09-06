@@ -32,40 +32,23 @@ public class Controle implements ActionListener {
 	
 	private Dao dao;
 	
-	public Controle(Login login) {
-		
+	
+	public Controle(AutenticacaoUsuario autenticacao, JanelaPrincipal janelaPrincipal, Login login) {
+		super();
+		this.autenticacao = autenticacao;
+		this.janelaPrincipal = janelaPrincipal;
 		this.login = login;
 		
-		janelaPrincipal = new JanelaPrincipal();
-		janelaPrincipal.setVisible(true);
-		janelaPrincipal.setSize(800, 500);
-		janelaPrincipal.setLocationRelativeTo(null);
-		dao = new Dao();
-		
-		login.getBtnLogin_Entrar().addActionListener(this);
-		login.getBtnLogin_Limpar().addActionListener(this);
-		
-		cadastro.getBtnCadastro_Cadastrar().addActionListener(this);
-		cadastro.getBtnCadastro_Limpar().addActionListener(this);
-		cadastro.getBtnCadastro_Voltar().addActionListener(this);
-		
-		buscaAtualiza.getBtnBuscar().addActionListener(this);
-		buscaAtualiza.getBtnAtualizar().addActionListener(this);
-		buscaAtualiza.getBtnLimpar().addActionListener(this);
-		buscaAtualiza.getBtnVoltar().addActionListener(this);
-		
-		menu.getBtnCadastrar().addActionListener(this);
-		menu.getBtnAtualizar().addActionListener(this);
-		menu.getBtnExcluir().addActionListener(this);
-		menu.getBtnFecharAplicacao().addActionListener(this);
-		
-		deleta.getBtnExcluir().addActionListener(this);
-		deleta.getBtnLimpar().addActionListener(this);
-		deleta.getBtnVoltar().addActionListener(this);
+		this.janelaPrincipal.getLogin().getBtnLogin_Limpar().addActionListener(this);
+		this.janelaPrincipal.getLogin().getBtnLogin_Entrar().addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		if (e.getActionCommand().equals("Limpar Tela")) {
+			this.janelaPrincipal.getLogin().limparLogin();
+		} 
 		
 		if(janelaPrincipal.getContentPane()==login) {
 			if(e.getActionCommand().equals("Entrar")) {
@@ -77,11 +60,6 @@ public class Controle implements ActionListener {
 				}
 				else 
 					JOptionPane.showMessageDialog(login,"Falha ao realizar login!","Erro",JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/close.png")));
-			}
-			else if(e.getActionCommand().equals("Limpar")) {
-				this.janelaPrincipal.getLogin().limparLogin();
-				
-			}
 			
 		}
 		
@@ -139,7 +117,7 @@ public class Controle implements ActionListener {
 			}else if(e.getActionCommand().equals("Excluir")) {
 				excluirDeleta();
 			}
-		}
+		}}
 	}
 	
 	// Método de Autenticação do painel Login
