@@ -12,7 +12,7 @@ public class Dao {
 	
 	// Autenticação do usuário através do jpanel Login
 	public boolean autenticarUsuario(AutenticacaoUsuario usuario) {
-		Connection connection = ConexaoMySQL.getConexao();
+		Connection connection = ConexaoMySQL.abrirConexaoMySQL();
 		String queryAutenticacao = "select usuario from usuario where usuario=? and senha=?";
 		
 		try {
@@ -46,7 +46,7 @@ public class Dao {
 	
 	// Método para cadatro de novo formulário através do jpanel Cadastro
 	public void cadastraFormulario(FormularioEstagio formulario) {
-		Connection connection = ConexaoMySQL.getConexao();
+		Connection connection = ConexaoMySQL.abrirConexaoMySQL();
 		String queryCadastro = "insert into formularioEstagio values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
@@ -108,7 +108,7 @@ public class Dao {
 	// Método de busca de formulário existente no banco de dados através do JPanel Busca_Atualiza
 	public FormularioEstagio buscaFormulario(String buscarCPF) {
 		FormularioEstagio formulario = new FormularioEstagio();
-		Connection connection = ConexaoMySQL.getConexao();
+		Connection connection = ConexaoMySQL.abrirConexaoMySQL();
 		String queryBuscar = "select * from formularioEstagio where cpf_estudante = ?";
 				
 		try {
@@ -182,7 +182,7 @@ public class Dao {
 	
 	// Método para atualizar formulário existente no baco de dados através do JPanel Busca_Atualiza
 	public void atualizaFormulario(String CPF_Estudante, FormularioEstagio formulario) {
-		Connection connection = ConexaoMySQL.getConexao();
+		Connection connection = ConexaoMySQL.abrirConexaoMySQL();
 		String queryAtualizar = "update formularioEstagio set "
 				+ "Apolice_estagio = ?,"
 				+ "Atuacao_Estagio = ?,"
@@ -288,7 +288,7 @@ public class Dao {
 	
 	// Método para excluir formulário de estágio existente no banco de dados através do JPanel Deleta
 	public void excluirFormulario(String CPF_Estudante){
-		Connection connection = ConexaoMySQL.getConexao();
+		Connection connection = ConexaoMySQL.abrirConexaoMySQL();
 		String queryExcluir = "delete from formularioEstagio where cpf_estudante = ?"; 
 		
 		try {

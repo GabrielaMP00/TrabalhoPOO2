@@ -23,7 +23,7 @@ public class Login extends JPanel {
 
 	public Login() {
 		setBackground(new Color(240, 250, 255));
-		setLayout(new MigLayout("", "[100,grow][100,center][100,center][100,center][100,grow]", "[25,grow][25][25][25][25,center][25][28.00][25][25][25][11.00][25][25][25,grow]"));
+		setLayout(new MigLayout("", "[100,grow][100,center][100,center][100,center][100,grow]", "[25,grow][25][25][25][25,center][25][28.00][25][25][25][][11.00][25][25][25,grow]"));
 		
 		JLabel lblAutenticacaoUsuario = new JLabel("Autentica\u00E7\u00E3o de Usu\u00E1rio");
 		lblAutenticacaoUsuario.setFont(new Font("Segoe UI", Font.BOLD, 25));
@@ -40,36 +40,31 @@ public class Login extends JPanel {
 		
 		JLabel lblLogin_Usuario = new JLabel("Usu\u00E1rio: ");
 		lblLogin_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(lblLogin_Usuario, "cell 0 8,alignx right");
+		add(lblLogin_Usuario, "cell 1 8,alignx left");
 		
 		textField_Usuario = new JTextField();
 		textField_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(textField_Usuario, "cell 1 8 3 1,growx,aligny center");
+		add(textField_Usuario, "cell 2 8,growx,aligny center");
 		textField_Usuario.setColumns(10);
-		
-		JLabel lblLogin_Senha = new JLabel("Senha: ");
-		lblLogin_Senha.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(lblLogin_Senha, "cell 0 9,alignx trailing");
 		
 		textField_Senha = new JPasswordField();
 		textField_Senha.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(textField_Senha, "cell 1 9 3 2,growx,aligny center");
+		add(textField_Senha, "cell 2 9 1 3,growx,aligny center");
+		
+		JLabel lblLogin_Senha = new JLabel("Senha: ");
+		lblLogin_Senha.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		add(lblLogin_Senha, "cell 1 10,alignx left");
 		
 		btnLogin_Entrar = new JButton("Entrar");
 		btnLogin_Entrar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/check.png")));
 		btnLogin_Entrar.setSelectedIcon(new ImageIcon(Login.class.getResource("/icones_logos/add-file.png")));
 		btnLogin_Entrar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		add(btnLogin_Entrar, "cell 1 11,growx,aligny center");
+		add(btnLogin_Entrar, "flowx,cell 2 12,growx,aligny center");
 		
 		btnLogin_Limpar = new JButton("Limpar");
 		btnLogin_Limpar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/eraser.png")));
 		btnLogin_Limpar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		add(btnLogin_Limpar, "cell 2 11,growx,aligny center");
-		
-		btnLogin_Sair = new JButton("Sair");
-		btnLogin_Sair.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/close.png")));
-		btnLogin_Sair.setFont(new Font("Tahoma", Font.BOLD, 12));
-		add(btnLogin_Sair, "cell 3 11,growx,aligny center");
+		add(btnLogin_Limpar, "cell 2 12,growx,aligny center");
 	}
 
 	public JTextField getTextField_Usuario() {
@@ -110,5 +105,10 @@ public class Login extends JPanel {
 
 	public void setTextField_Senha(JPasswordField textField_Senha) {
 		this.textField_Senha = textField_Senha;
+	}
+	
+	public void limparLogin() {
+		getTextField_Usuario().setText("");
+		getTextField_Senha().setText("");
 	}
 }

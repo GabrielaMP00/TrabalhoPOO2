@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -23,7 +24,7 @@ public class Controle implements ActionListener {
 	private FormularioEstagio formulario = new FormularioEstagio();
 	
 	private JanelaPrincipal janelaPrincipal;
-	private Login login = new Login();
+	private Login login;
 	private Cadastro cadastro = new Cadastro();
 	private Busca_Atualiza buscaAtualiza = new Busca_Atualiza();
 	private Menu menu = new Menu();
@@ -31,15 +32,18 @@ public class Controle implements ActionListener {
 	
 	private Dao dao;
 	
-	public Controle() {
+	public Controle(Login login) {
+		
+		this.login = login;
+		
 		janelaPrincipal = new JanelaPrincipal();
 		janelaPrincipal.setVisible(true);
 		janelaPrincipal.setSize(800, 500);
 		janelaPrincipal.setLocationRelativeTo(null);
+		dao = new Dao();
 		
 		login.getBtnLogin_Entrar().addActionListener(this);
 		login.getBtnLogin_Limpar().addActionListener(this);
-		login.getBtnLogin_Sair().addActionListener(this);
 		
 		cadastro.getBtnCadastro_Cadastrar().addActionListener(this);
 		cadastro.getBtnCadastro_Limpar().addActionListener(this);
@@ -58,11 +62,6 @@ public class Controle implements ActionListener {
 		deleta.getBtnExcluir().addActionListener(this);
 		deleta.getBtnLimpar().addActionListener(this);
 		deleta.getBtnVoltar().addActionListener(this);
-		
-		dao = new Dao();
-		
-		
-		
 	}
 
 	@Override
@@ -70,13 +69,20 @@ public class Controle implements ActionListener {
 		
 		if(janelaPrincipal.getContentPane()==login) {
 			if(e.getActionCommand().equals("Entrar")) {
-				loginEntrar();
-				// login: admin senha: admin
-			}else if(e.getActionCommand().equals("Limpar")) {
-				loginLimpar();
-			}else if(e.getActionCommand().equals("Sair")){
-				loginSair();
+				autenticacao.setUsuario(login.getTextField_Usuario().getText());
+				autenticacao.setSenha(login.getTextField_Senha().getText());
+				if(dao.autenticarUsuario(autenticacao)) {
+					janelaPrincipal.getMenuGerenciar().setVisible(true);
+					JOptionPane.showMessageDialog(login, "Login realizado com sucesso!", "Login Efetuado", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/check.png")));
+				}
+				else 
+					JOptionPane.showMessageDialog(login,"Falha ao realizar login!","Erro",JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/close.png")));
 			}
+			else if(e.getActionCommand().equals("Limpar")) {
+				this.janelaPrincipal.getLogin().limparLogin();
+				
+			}
+			
 		}
 		
 		if(janelaPrincipal.getContentPane()==menu) {

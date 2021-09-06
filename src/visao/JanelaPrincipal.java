@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import java.awt.BorderLayout;
@@ -27,8 +28,15 @@ public class JanelaPrincipal extends JFrame {
 	private CardLayout card;
 	private JPanel contentPane;
 	private Login login;
+	private Estagiario estagiario;
 	private Cadastro cadastro;
 	private PrincipalFundo principal;
+	private Curso curso;
+	private TermoDeCompromisso termo;
+	private Concedente concedente;
+	private JMenuBar menuBar;
+	private JMenu menuLogon, menuGerenciar;
+	private JMenuItem itemAutenticar, itemSair, itemEstagiario, itemCurso, itemConcedente, itemTermo;
 
 	public JanelaPrincipal() {
 		setTitle("Painel de Administra\u00E7\u00E3o");
@@ -36,14 +44,14 @@ public class JanelaPrincipal extends JFrame {
 		setBounds(100, 100, 800, 500);
 		
 	//##########MENU############
-		JMenuBar menuBar = new JMenuBar();
+		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu menuLogon = new JMenu("Logon");
+		menuLogon = new JMenu("Logon");
 		menuLogon.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuBar.add(menuLogon);
 		
-		JMenuItem itemAutenticar = new JMenuItem("Autenticar");
+		itemAutenticar = new JMenuItem("Autenticar");
 		itemAutenticar.addActionListener(new ActionListener() {
 
 			@Override
@@ -59,22 +67,35 @@ public class JanelaPrincipal extends JFrame {
 		menuLogon.add(itemAutenticar);
 
 		
-		JMenuItem itemSair = new JMenuItem("Sair");
+		itemSair = new JMenuItem("Sair");
+		itemSair.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub	
+				int op = JOptionPane.showConfirmDialog(contentPane, "Deseja sair?", "SAIR", 0, 1, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/close.png")));
+				
+				if(op==JOptionPane.OK_OPTION) {
+					System.exit(0);
+				}
+			}
+			
+		});
 		itemSair.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/log-out.png")));
 		itemSair.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuLogon.add(itemSair);
 		
-		JMenu menuGerenciar = new JMenu("Gerenciar");
+		menuGerenciar = new JMenu("Gerenciar");
 		menuGerenciar.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuBar.add(menuGerenciar);
 		
-		JMenuItem itemEstagiario = new JMenuItem("Estagi\u00E1rio");
+		itemEstagiario = new JMenuItem("Estagi\u00E1rio");
 		itemEstagiario.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				card.show(contentPane, "panelCadastro");
+				card.show(contentPane, "panelEstagiario");
 				
 			}
 			
@@ -83,24 +104,50 @@ public class JanelaPrincipal extends JFrame {
 		itemEstagiario.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuGerenciar.add(itemEstagiario);
 		
-		JMenuItem itemCurso = new JMenuItem("Curso");
+		itemCurso = new JMenuItem("Curso");
+		itemCurso.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				card.show(contentPane, "panelCurso");
+				
+			}
+			
+		});
 		itemCurso.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/mortarboard.png")));
 		itemCurso.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuGerenciar.add(itemCurso);
 		
-		JMenuItem itemConcedente = new JMenuItem("Concedente");
+		itemConcedente = new JMenuItem("Concedente");
+		itemConcedente.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				card.show(contentPane, "panelConcedente");
+				
+			}
+			
+		});
 		itemConcedente.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/concedente.png")));
 		itemConcedente.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuGerenciar.add(itemConcedente);
 		
-		JMenuItem itemTermo = new JMenuItem("Termo de Compromisso");
+		itemTermo = new JMenuItem("Termo de Compromisso");
+		itemTermo.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				card.show(contentPane, "panelTermo");
+				
+			}
+			
+		});
 		itemTermo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/papel.png")));
 		itemTermo.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuGerenciar.add(itemTermo);
-		
-		JLabel labelEspaco = new JLabel("                                                                                                                                                                              ");
-		
-		menuBar.add(labelEspaco);
 		
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() 
@@ -126,11 +173,19 @@ public class JanelaPrincipal extends JFrame {
 		
 		principal = new PrincipalFundo();
 		login = new Login();
-		cadastro = new Cadastro();	
+		cadastro = new Cadastro();
+		curso = new Curso();
+		termo = new TermoDeCompromisso();
+		concedente = new Concedente();
+		estagiario = new Estagiario();
 		
 		contentPane.add(principal, "panelPrincipal");
 		contentPane.add(login, "panelLogin");
 		contentPane.add(cadastro, "panelCadastro");
+		contentPane.add(curso, "panelCurso");
+		contentPane.add(termo, "panelTermo");
+		contentPane.add(concedente, "panelConcedente");
+		contentPane.add(estagiario, "panelEstagiario");
 
 	}
 
@@ -165,6 +220,94 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setLogin(Login login) {
 		this.login = login;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public TermoDeCompromisso getTermo() {
+		return termo;
+	}
+
+	public void setTermo(TermoDeCompromisso termo) {
+		this.termo = termo;
+	}
+
+	public Concedente getConcedente() {
+		return concedente;
+	}
+
+	public void setConcedente(Concedente concedente) {
+		this.concedente = concedente;
+	}
+
+	public JMenu getMenuLogon() {
+		return menuLogon;
+	}
+
+	public void setMenuLogon(JMenu menuLogon) {
+		this.menuLogon = menuLogon;
+	}
+
+	public JMenu getMenuGerenciar() {
+		return menuGerenciar;
+	}
+
+	public void setMenuGerenciar(JMenu menuGerenciar) {
+		this.menuGerenciar = menuGerenciar;
+	}
+
+	public JMenuItem getItemAutenticar() {
+		return itemAutenticar;
+	}
+
+	public void setItemAutenticar(JMenuItem itemAutenticar) {
+		this.itemAutenticar = itemAutenticar;
+	}
+
+	public JMenuItem getItemSair() {
+		return itemSair;
+	}
+
+	public void setItemSair(JMenuItem itemSair) {
+		this.itemSair = itemSair;
+	}
+
+	public JMenuItem getItemEstagiario() {
+		return itemEstagiario;
+	}
+
+	public void setItemEstagiario(JMenuItem itemEstagiario) {
+		this.itemEstagiario = itemEstagiario;
+	}
+
+	public JMenuItem getItemCurso() {
+		return itemCurso;
+	}
+
+	public void setItemCurso(JMenuItem itemCurso) {
+		this.itemCurso = itemCurso;
+	}
+
+	public JMenuItem getItemConcedente() {
+		return itemConcedente;
+	}
+
+	public void setItemConcedente(JMenuItem itemConcedente) {
+		this.itemConcedente = itemConcedente;
+	}
+
+	public JMenuItem getItemTermo() {
+		return itemTermo;
+	}
+
+	public void setItemTermo(JMenuItem itemTermo) {
+		this.itemTermo = itemTermo;
 	}
 	
 }
