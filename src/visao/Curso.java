@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.border.MatteBorder;
+import java.awt.Font;
 
 public class Curso extends JPanel {
 	private JTextField textFieldUniversidade;
@@ -30,6 +32,7 @@ public class Curso extends JPanel {
 	private JButton btnConsultar;
 	private JButton btnLimpar;
 	private JButton btnRemover;
+	private JLabel labelTituloCurso;
 	
 	/**
 	 * Create the panel.
@@ -37,18 +40,19 @@ public class Curso extends JPanel {
 	public Curso() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(new BorderLayout(0, 0));
+		setBounds(100, 100, 950, 550);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		add(panel, BorderLayout.SOUTH);
 		
 		btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/add-file.png")));
+		btnCadastrar.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/add-documents (1).png")));
 		btnCadastrar.setBackground(new Color(102, 204, 255));
 		panel.add(btnCadastrar);
 		
 		btnAtualizar = new JButton("Atualizar");
-		btnAtualizar.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/refresh.png")));
+		btnAtualizar.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/refresh (1).png")));
 		btnAtualizar.setBackground(new Color(102, 204, 255));
 		panel.add(btnAtualizar);
 		
@@ -58,124 +62,163 @@ public class Curso extends JPanel {
 		panel.add(btnConsultar);
 		
 		btnLimpar = new JButton("Limpar");
-		btnLimpar.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/broom.png")));
+		btnLimpar.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/eraser32.png")));
 		btnLimpar.setBackground(new Color(102, 204, 255));
 		panel.add(btnLimpar);
 		
 		btnRemover = new JButton("Remover");
-		btnRemover.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/bin.png")));
+		btnRemover.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/trash32.png")));
 		btnRemover.setBackground(new Color(102, 204, 255));
 		panel.add(btnRemover);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(153, 204, 255));
+		panel_1.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
+		panel_1.setBackground(new Color(240, 248, 255));
 		add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(new MigLayout("", "[][grow][][grow]", "[][][][][][][][][][][][][][][][]"));
+		panel_1.setLayout(new MigLayout("", "[46.00][329.00,grow][43.00][315.00,grow][49.00]", "[52.00][][][][][][][][][][][][][][9.00][6.00][][][][]"));
 		
-		JLabel lblNewLabel = new JLabel("Universidade");
-		panel_1.add(lblNewLabel, "cell 0 1,alignx center");
+		labelTituloCurso = new JLabel("Curso");
+		labelTituloCurso.setFont(new Font("Segoe UI", Font.BOLD, 30));
+		panel_1.add(labelTituloCurso, "cell 0 0 5 1,alignx center");
+		
+		JLabel labelUniversidade = new JLabel("Universidade");
+		labelUniversidade.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelUniversidade, "flowx,cell 1 2,alignx left");
 		
 		textFieldUniversidade = new JTextField();
-		panel_1.add(textFieldUniversidade, "cell 1 1,growx");
+		textFieldUniversidade.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldUniversidade, "cell 1 2,growx");
 		textFieldUniversidade.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Curso");
-		panel_1.add(lblNewLabel_1, "cell 2 1,alignx center");
+		JLabel labelCurso = new JLabel("Curso");
+		labelCurso.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelCurso, "flowx,cell 3 2,alignx left");
 		
 		textFieldCurso = new JTextField();
-		panel_1.add(textFieldCurso, "cell 3 1,growx");
+		textFieldCurso.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldCurso, "cell 3 2,growx");
 		textFieldCurso.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("C\u00F3digo");
-		panel_1.add(lblNewLabel_2, "cell 0 3,alignx center");
+		JLabel labelCodigo = new JLabel("C\u00F3digo");
+		labelCodigo.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelCodigo, "flowx,cell 1 4,alignx left");
 		
 		textFielCodigo = new JTextField();
-		panel_1.add(textFielCodigo, "cell 1 3,growx");
+		textFielCodigo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFielCodigo, "cell 1 4,growx");
 		textFielCodigo.setColumns(10);
 		
-		JLabel lblNewLabel_9 = new JLabel("Representante Coord.");
-		panel_1.add(lblNewLabel_9, "cell 2 3,alignx center");
+		JLabel labelTelCoordenacao = new JLabel("Telefone Coordena\u00E7\u00E3o");
+		labelTelCoordenacao.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelTelCoordenacao, "flowx,cell 3 4,alignx left");
 		
-		textFieldRepreCoordenacao = new JTextField();
-		panel_1.add(textFieldRepreCoordenacao, "cell 3 3,growx");
-		textFieldRepreCoordenacao.setColumns(10);
-		
-		JLabel lblNewLabel_3 = new JLabel("Cargo Representate");
-		panel_1.add(lblNewLabel_3, "cell 0 5,alignx center");
+		JLabel labelCargoRepre = new JLabel("Cargo Representante");
+		labelCargoRepre.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelCargoRepre, "flowx,cell 1 6,alignx left");
 		
 		textFieldCargoRepre = new JTextField();
-		panel_1.add(textFieldCargoRepre, "cell 1 5,growx");
+		textFieldCargoRepre.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldCargoRepre, "cell 1 6,growx");
 		textFieldCargoRepre.setColumns(10);
 		
-		JLabel lblNewLabel_10 = new JLabel("Tel. Coordena\u00E7\u00E3o");
-		panel_1.add(lblNewLabel_10, "cell 2 5,alignx center");
+		JLabel labelCep = new JLabel("CEP");
+		labelCep.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelCep, "flowx,cell 3 6,alignx left");
 		
-		textFieldTelCoordenacao = new JTextField();
-		panel_1.add(textFieldTelCoordenacao, "cell 3 5,growx");
-		textFieldTelCoordenacao.setColumns(10);
-		
-		JLabel lblNewLabel_4 = new JLabel("CNPJ");
-		panel_1.add(lblNewLabel_4, "cell 0 7,alignx center");
+		JLabel labelCnpj = new JLabel("CNPJ");
+		labelCnpj.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelCnpj, "flowx,cell 1 8,alignx left");
 		
 		textFieldCnpj = new JTextField();
-		panel_1.add(textFieldCnpj, "cell 1 7,growx");
+		textFieldCnpj.setText("  .   .   /    -  ");
+		textFieldCnpj.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldCnpj, "cell 1 8,growx");
 		textFieldCnpj.setColumns(10);
 		
-		JLabel lblNewLabel_11 = new JLabel("CEP");
-		panel_1.add(lblNewLabel_11, "cell 2 7,alignx center");
+		JLabel labelEstado = new JLabel("Estado");
+		labelEstado.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelEstado, "flowx,cell 3 8,aligny baseline");
 		
-		textFieldCep = new JTextField();
-		panel_1.add(textFieldCep, "cell 3 7,growx");
-		textFieldCep.setColumns(10);
-		
-		JLabel lblNewLabel_5 = new JLabel("Endere\u00E7o");
-		panel_1.add(lblNewLabel_5, "cell 0 9,alignx center");
+		JLabel labelEndereco = new JLabel("Endere\u00E7o");
+		labelEndereco.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelEndereco, "flowx,cell 1 10,alignx left");
 		
 		textFieldEndereco = new JTextField();
-		panel_1.add(textFieldEndereco, "cell 1 9,growx");
+		textFieldEndereco.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldEndereco, "cell 1 10,growx");
 		textFieldEndereco.setColumns(10);
 		
-		JLabel lblNewLabel_12 = new JLabel("Estado");
-		panel_1.add(lblNewLabel_12, "cell 2 9,alignx center");
+		JLabel labelBairro = new JLabel("Bairro");
+		labelBairro.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelBairro, "flowx,cell 3 10,alignx left");
 		
-		textFieldEstado = new JTextField();
-		panel_1.add(textFieldEstado, "cell 3 9,growx");
-		textFieldEstado.setColumns(10);
-		
-		JLabel lblNewLabel_6 = new JLabel("Cidade");
-		panel_1.add(lblNewLabel_6, "cell 0 11,alignx center");
+		JLabel labelCidade = new JLabel("Cidade");
+		labelCidade.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelCidade, "flowx,cell 1 12,alignx left");
 		
 		textFieldCidade = new JTextField();
-		panel_1.add(textFieldCidade, "cell 1 11,growx");
+		textFieldCidade.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldCidade, "cell 1 12,growx");
 		textFieldCidade.setColumns(10);
 		
-		JLabel lblNewLabel_13 = new JLabel("Bairro");
-		panel_1.add(lblNewLabel_13, "cell 2 11,alignx center");
+		JLabel labelTelUniversidade = new JLabel("Telefone Universidade");
+		labelTelUniversidade.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelTelUniversidade, "flowx,cell 3 12,alignx left");
 		
-		textFieldBairro = new JTextField();
-		panel_1.add(textFieldBairro, "cell 3 11,growx");
-		textFieldBairro.setColumns(10);
+		JLabel labelRepresentanteUni = new JLabel("Representante da Universidade");
+		labelRepresentanteUni.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelRepresentanteUni, "flowx,cell 1 14 3 1,alignx left");
 		
-		JLabel lblNewLabel_7 = new JLabel("Tel. Universidade");
-		panel_1.add(lblNewLabel_7, "cell 0 13,alignx center");
-		
-		textFieldTelUniversidade = new JTextField();
-		panel_1.add(textFieldTelUniversidade, "cell 1 13,growx");
-		textFieldTelUniversidade.setColumns(10);
-		
-		JLabel lblNewLabel_14 = new JLabel("Representante da Uni.");
-		panel_1.add(lblNewLabel_14, "cell 2 13,alignx center");
-		
-		textFieldRepresentanteUni = new JTextField();
-		panel_1.add(textFieldRepresentanteUni, "cell 3 13,growx");
-		textFieldRepresentanteUni.setColumns(10);
-		
-		JLabel lblNewLabel_8 = new JLabel("Cargo Representante da Uni.");
-		panel_1.add(lblNewLabel_8, "cell 0 15,alignx center");
+		JLabel labelCargoRepresentanteUni = new JLabel("Cargo do Representante da Universidade");
+		labelCargoRepresentanteUni.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelCargoRepresentanteUni, "flowx,cell 1 15 3 1,alignx left");
 		
 		textFieldCargoRepresentanteUni = new JTextField();
-		panel_1.add(textFieldCargoRepresentanteUni, "cell 1 15,growx");
+		textFieldCargoRepresentanteUni.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldCargoRepresentanteUni, "cell 1 15 3 1,growx");
 		textFieldCargoRepresentanteUni.setColumns(10);
+		
+		JLabel labelRepreCoordenacao = new JLabel("Representante da Coordenação");
+		labelRepreCoordenacao.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panel_1.add(labelRepreCoordenacao, "flowx,cell 1 17 3 1,alignx left");
+		
+		textFieldRepreCoordenacao = new JTextField();
+		textFieldRepreCoordenacao.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldRepreCoordenacao, "cell 1 14 3 1,growx");
+		textFieldRepreCoordenacao.setColumns(10);
+		
+		textFieldRepresentanteUni = new JTextField();
+		textFieldRepresentanteUni.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldRepresentanteUni, "cell 1 17 3 1,growx");
+		textFieldRepresentanteUni.setColumns(10);
+		
+		textFieldTelCoordenacao = new JTextField();
+		textFieldTelCoordenacao.setText("(  )     -    ");
+		textFieldTelCoordenacao.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldTelCoordenacao, "cell 3 4,growx");
+		textFieldTelCoordenacao.setColumns(10);
+		
+		textFieldCep = new JTextField();
+		textFieldCep.setText("     -   ");
+		textFieldCep.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldCep, "cell 3 6,growx");
+		textFieldCep.setColumns(10);
+		
+		textFieldEstado = new JTextField();
+		textFieldEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldEstado, "cell 3 8,growx");
+		textFieldEstado.setColumns(10);
+		
+		textFieldBairro = new JTextField();
+		textFieldBairro.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldBairro, "cell 3 10,growx");
+		textFieldBairro.setColumns(10);
+		
+		textFieldTelUniversidade = new JTextField();
+		textFieldTelUniversidade.setText("(  )     -    ");
+		textFieldTelUniversidade.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panel_1.add(textFieldTelUniversidade, "cell 3 12,growx");
+		textFieldTelUniversidade.setColumns(10);
 
 	}
 

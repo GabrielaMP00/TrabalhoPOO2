@@ -9,12 +9,9 @@ import javax.swing.JOptionPane;
 import dao.Dao;
 import modelo.AutenticacaoUsuario;
 import modelo.FormularioEstagio;
-import visao.Busca_Atualiza;
 import visao.Cadastro;
-import visao.Deleta;
 import visao.JanelaPrincipal;
 import visao.Login;
-import visao.Menu;
 	
 public class ControleAutenticar implements ActionListener {
 	private AutenticacaoUsuario autenticacao;

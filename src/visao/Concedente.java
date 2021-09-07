@@ -43,7 +43,7 @@ public class Concedente extends JPanel {
 		
 		setBackground(new Color(240, 250, 255));
 		setLayout(new BorderLayout(0, 0));
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 950, 550);
 		
 		JPanel panelBotoes = new JPanel();
 		add(panelBotoes, BorderLayout.SOUTH);
@@ -77,11 +77,11 @@ public class Concedente extends JPanel {
 		panelPrincipal.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
 		panelPrincipal.setBackground(new Color(240, 248, 255));
 		add(panelPrincipal, BorderLayout.CENTER);
-		panelPrincipal.setLayout(new MigLayout("", "[47.00][][grow][][][254.00,grow][48.00]", "[64.00][36.00][32.00][32.00][32.00][34.00][26.00][35.00][34.00][][20]"));
+		panelPrincipal.setLayout(new MigLayout("", "[45.00][53.00][232.00,grow][50.00][][254.00,grow][48.00]", "[80.00][36.00][32.00][32.00][32.00][34.00][26.00][35.00][34.00][][20]"));
 		
 		labelConcedente = new JLabel("Concedente");
 		labelConcedente.setFont(new Font("Segoe UI", Font.BOLD, 30));
-		panelPrincipal.add(labelConcedente, "cell 2 0 4 1,alignx center");
+		panelPrincipal.add(labelConcedente, "cell 0 0 7 1,alignx center");
 		
 		JLabel labelRazaoSocial = new JLabel("Raz\u00E3o Social");
 		labelRazaoSocial.setFont(new Font("Segoe UI", Font.PLAIN, 18));
@@ -90,14 +90,6 @@ public class Concedente extends JPanel {
 		JLabel labelCNPJ = new JLabel("CNPJ");
 		labelCNPJ.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		panelPrincipal.add(labelCNPJ, "flowx,cell 4 1 2 1");
-		
-		JLabel labelTelefone = new JLabel("Telefone");
-		labelTelefone.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelTelefone, "flowx,cell 1 3,spanx 2");
-		
-		JLabel labelRepresentante = new JLabel("Representante");
-		labelRepresentante.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelRepresentante, "flowx,cell 4 3 2 1");
 		
 		JLabel labelCargoRep = new JLabel("Cargo Representante");
 		labelCargoRep.setFont(new Font("Segoe UI", Font.PLAIN, 18));
@@ -122,6 +114,10 @@ public class Concedente extends JPanel {
 		JLabel labelBairro = new JLabel("Bairro");
 		labelBairro.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		panelPrincipal.add(labelBairro, "flowx,cell 4 9 2 1");
+		
+		JLabel labelTelefone = new JLabel("Telefone");
+		labelTelefone.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panelPrincipal.add(labelTelefone, "flowx,cell 4 3 2 1");
 		
 		textFieldRazaoSocial = new JTextField();
 		textFieldRazaoSocial.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -153,29 +149,19 @@ public class Concedente extends JPanel {
 			mascaraCEP = new MaskFormatter("#####-###");
 			mascaraCEP.setPlaceholder(" ");
 			mascaraCNPJ = new MaskFormatter("##.###.###/####-##");
-			formattedTextFieldTelefone = new JFormattedTextField(mascaraTelefone);
-			formattedTextFieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldTelefone, "cell 1 3 2 1,growx");
 			formattedTextFieldCEP = new JFormattedTextField(mascaraCEP);
 			formattedTextFieldCEP.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			panelPrincipal.add(formattedTextFieldCEP, "cell 4 5 2 1,growx");
 			formattedTextFieldCNPJ = new JFormattedTextField(mascaraCNPJ);
 			formattedTextFieldCNPJ.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			panelPrincipal.add(formattedTextFieldCNPJ, "cell 4 1 2 1,growx");
+			formattedTextFieldTelefone = new JFormattedTextField(mascaraTelefone);
+			formattedTextFieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldTelefone, "cell 4 3 2 1,growx");
 
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
-		//textFieldCNPJ = new JTextField();
-		//textFieldCNPJ.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		//panelPrincipal.add(textFieldCNPJ, "cell 4 1 2 1,growx");
-		//textFieldCNPJ.setColumns(10);
-		
-		textFieldRepresentante = new JTextField();
-		textFieldRepresentante.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldRepresentante, "cell 4 3 2 1,growx");
-		textFieldRepresentante.setColumns(10);
 		
 		textFieldEstado = new JTextField();
 		textFieldEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -186,6 +172,22 @@ public class Concedente extends JPanel {
 		textFieldBairro.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldBairro, "cell 4 9 2 1,growx");
 		textFieldBairro.setColumns(10);
+		
+
+		
+		JLabel labelRepresentante = new JLabel("Representante");
+		labelRepresentante.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panelPrincipal.add(labelRepresentante, "flowx,cell 1 3, spanx 2");
+		
+		//textFieldCNPJ = new JTextField();
+		//textFieldCNPJ.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//panelPrincipal.add(textFieldCNPJ, "cell 4 1 2 1,growx");
+		//textFieldCNPJ.setColumns(10);
+		
+		textFieldRepresentante = new JTextField();
+		textFieldRepresentante.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panelPrincipal.add(textFieldRepresentante, "cell 1 3 2 1,growx");
+		textFieldRepresentante.setColumns(10);
 
 	}
 

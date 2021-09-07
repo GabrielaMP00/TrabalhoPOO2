@@ -16,6 +16,7 @@ public class PrincipalFundo extends JPanel {
 	
 	public PrincipalFundo() {
 		setLayout(new CardLayout(0, 0));
+		setBounds(100, 100, 950, 550);
 		setBackground(new Color(240, 250, 255));
 		JLabel planoDeFundo = new JLabel("");
 		planoDeFundo.setHorizontalAlignment(SwingConstants.CENTER);

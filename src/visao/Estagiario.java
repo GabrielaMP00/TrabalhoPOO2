@@ -50,7 +50,7 @@ public class Estagiario extends JPanel {
 		
 		setBackground(new Color(240, 250, 255));
 		setLayout(new BorderLayout(0, 0));
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 950, 550);
 		
 		JPanel panelBotoes = new JPanel();
 		add(panelBotoes, BorderLayout.SOUTH);
@@ -84,7 +84,7 @@ public class Estagiario extends JPanel {
 		panelPrincipal.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
 		panelPrincipal.setBackground(new Color(240, 248, 255));
 		add(panelPrincipal, BorderLayout.CENTER);
-		panelPrincipal.setLayout(new MigLayout("", "[47.00][][264.00,grow][][43.00][254.00,grow][48.00]", "[53.00][36.00][24.00][32.00][24.00][34.00][26.00][35.00][24.00][][][29.00][34.00]"));
+		panelPrincipal.setLayout(new MigLayout("", "[47.00][54.00][188.00,grow][77.00][64.00][254.00,grow][48.00]", "[53.00][15.00][36.00][24.00][32.00][24.00][34.00][26.00][35.00][24.00][][28.00][29.00][34.00]"));
 		
 		labelEstagiario = new JLabel("Estagi\u00E1rio");
 		labelEstagiario.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -92,52 +92,52 @@ public class Estagiario extends JPanel {
 		
 		JLabel labelNome = new JLabel("Nome");
 		labelNome.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelNome, "flowx,cell 1 1,spanx 2");
+		panelPrincipal.add(labelNome, "flowx,cell 1 2 2 1");
 		
 		JLabel labelCPF = new JLabel("CPF");
 		labelCPF.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelCPF, "flowx,cell 4 1 2 1");
+		panelPrincipal.add(labelCPF, "flowx,cell 4 2 2 1");
 		
 		JLabel labelData = new JLabel("Data");
 		labelData.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelData, "flowx,cell 1 3,spanx 2");
+		panelPrincipal.add(labelData, "flowx,cell 1 4 2 1");
 		
 		JLabel labelSexo = new JLabel("Sexo");
 		labelSexo.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelSexo, "flowx,cell 4 3 2 1");
+		panelPrincipal.add(labelSexo, "flowx,cell 4 4 2 1");
 		
 		JLabel labelTelefone = new JLabel("Telefone");
 		labelTelefone.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelTelefone, "flowx,cell 1 5,spanx 2");
+		panelPrincipal.add(labelTelefone, "flowx,cell 1 6 2 1");
 		
 		JLabel labelCEP = new JLabel("CEP");
 		labelCEP.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelCEP, "flowx,cell 4 5 2 1");
+		panelPrincipal.add(labelCEP, "flowx,cell 4 6 2 1");
 		
 		JLabel labelCelular = new JLabel("Celular");
 		labelCelular.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelCelular, "flowx,cell 1 7,spanx 2");
+		panelPrincipal.add(labelCelular, "flowx,cell 1 8 2 1");
 		
 		JLabel labelEndereco = new JLabel("Endere\u00E7o");
 		labelEndereco.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelEndereco, "flowx,cell 4 7 2 1");
+		panelPrincipal.add(labelEndereco, "flowx,cell 4 8 2 1");
 		
 		JLabel labelCidade = new JLabel("Cidade");
 		labelCidade.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelCidade, "flowx,cell 1 9 2 1");
+		panelPrincipal.add(labelCidade, "flowx,cell 1 10 2 1");
 		
 		JLabel labelBairro = new JLabel("Bairro");
 		labelBairro.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelBairro, "flowx,cell 4 9 2 1");
+		panelPrincipal.add(labelBairro, "flowx,cell 4 10 2 1");
 		
 		textFieldNome = new JTextField();
 		textFieldNome.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldNome, "cell 1 1 2 1,growx");
+		panelPrincipal.add(textFieldNome, "cell 1 2 2 1,growx");
 		textFieldNome.setColumns(10);
 		
 		textFieldCidade = new JTextField();
 		textFieldCidade.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldCidade, "cell 1 9 2 1,growx");
+		panelPrincipal.add(textFieldCidade, "cell 1 10 2 1,growx");
 		textFieldCidade.setColumns(10);
 		
 		MaskFormatter mascaraCEP;
@@ -158,19 +158,19 @@ public class Estagiario extends JPanel {
 			mascaraData.setPlaceholder(" ");
 			formattedTextFieldTelefone = new JFormattedTextField(mascaraTelefone);
 			formattedTextFieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldTelefone, "cell 1 5 2 1,growx");
+			panelPrincipal.add(formattedTextFieldTelefone, "cell 1 6 2 1,growx");
 			formattedTextFieldCelular = new JFormattedTextField(mascaraTelefone);
 			formattedTextFieldCelular.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldCelular, "cell 1 7 2 1,growx");
+			panelPrincipal.add(formattedTextFieldCelular, "cell 1 8 2 1,growx");
 			formattedTextFieldCEP = new JFormattedTextField(mascaraCEP);
 			formattedTextFieldCEP.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldCEP, "cell 4 5 2 1,growx");
+			panelPrincipal.add(formattedTextFieldCEP, "cell 4 6 2 1,growx");
 			formattedTextFieldCPF = new JFormattedTextField(mascaraCPF);
 			formattedTextFieldCPF.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldCPF, "cell 4 1 2 1,growx");
+			panelPrincipal.add(formattedTextFieldCPF, "cell 4 2 2 1,growx");
 			formattedTextFieldData = new JFormattedTextField(mascaraData);
 			formattedTextFieldData.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldData, "cell 1 3 2 1,growx");
+			panelPrincipal.add(formattedTextFieldData, "cell 1 4 2 1,growx");
 
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -178,43 +178,43 @@ public class Estagiario extends JPanel {
 		
 		textFieldEndereco = new JTextField();
 		textFieldEndereco.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldEndereco, "cell 4 7 2 1,growx");
+		panelPrincipal.add(textFieldEndereco, "cell 4 8 2 1,growx");
 		textFieldEndereco.setColumns(10);
 		
 		textFieldBairro = new JTextField();
 		textFieldBairro.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldBairro, "cell 4 9 2 1,growx");
+		panelPrincipal.add(textFieldBairro, "cell 4 10 2 1,growx");
 		textFieldBairro.setColumns(10);
 		
 		radioFeminino = new JRadioButton("Feminino");
 		radioFeminino.setBackground(new Color(240, 248, 255));
 		radioFeminino.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		panelPrincipal.add(radioFeminino, "cell 5 3,alignx center");
+		panelPrincipal.add(radioFeminino, "cell 5 4,alignx center");
 		
 		lblNewLabel = new JLabel("                ");
-		panelPrincipal.add(lblNewLabel, "cell 5 3");
+		panelPrincipal.add(lblNewLabel, "cell 5 4");
 		
 		radioMasculino = new JRadioButton("Masculino");
 		radioMasculino.setBackground(new Color(240, 248, 255));
 		radioMasculino.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		panelPrincipal.add(radioMasculino, "cell 5 3");
+		panelPrincipal.add(radioMasculino, "cell 5 4");
 		
 		labelCurso = new JLabel("Curso");
 		labelCurso.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelCurso, "flowx,cell 1 11, spanx 2");
+		panelPrincipal.add(labelCurso, "flowx,cell 1 12 2 1");
 		
 		textFieldCurso = new JTextField();
 		textFieldCurso.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldCurso, "cell 1 11 2 1, growx");
+		panelPrincipal.add(textFieldCurso, "cell 1 12 2 1,growx");
 		textFieldCurso.setColumns(10);
 		
 		labelIngresso = new JLabel("Ingresso");
 		labelIngresso.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelIngresso, "flowx,cell 4 11, spanx 2");
+		panelPrincipal.add(labelIngresso, "flowx,cell 4 12 2 1");
 		
 		textFieldIngresso = new JTextField();
 		textFieldIngresso.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldIngresso, "cell 4 11 2 1, growx");
+		panelPrincipal.add(textFieldIngresso, "cell 4 12 2 1,growx");
 		textFieldIngresso.setColumns(10);
 		
 		botaoGrupo = new ButtonGroup();

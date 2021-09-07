@@ -41,7 +41,7 @@ public class JanelaPrincipal extends JFrame {
 	public JanelaPrincipal() {
 		setTitle("Painel de Administra\u00E7\u00E3o");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 950, 550);
 		
 	//##########MENU############
 		menuBar = new JMenuBar();

@@ -23,10 +23,11 @@ public class Login extends JPanel {
 
 	public Login() {
 		setBackground(new Color(240, 250, 255));
+		setBounds(100, 100, 800, 500);
 		setLayout(new MigLayout("", "[100,grow][100,center][100,center][100,center][100,grow]", "[25,grow][25][25][25][25,center][25][28.00][25][25][25][][11.00][25][25][25,grow]"));
 		
 		JLabel lblAutenticacaoUsuario = new JLabel("Autentica\u00E7\u00E3o de Usu\u00E1rio");
-		lblAutenticacaoUsuario.setFont(new Font("Segoe UI", Font.BOLD, 25));
+		lblAutenticacaoUsuario.setFont(new Font("Segoe UI", Font.BOLD, 30));
 		add(lblAutenticacaoUsuario, "cell 1 1 3 1,alignx center,aligny bottom");
 		
 		JLabel imagemLogo = new JLabel(" ");
@@ -39,7 +40,7 @@ public class Login extends JPanel {
 		}
 		
 		JLabel lblLogin_Usuario = new JLabel("Usu\u00E1rio: ");
-		lblLogin_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLogin_Usuario.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		add(lblLogin_Usuario, "cell 1 8,alignx right");
 		
 		textField_Usuario = new JTextField();
@@ -49,21 +50,21 @@ public class Login extends JPanel {
 		
 		textField_Senha = new JPasswordField();
 		textField_Senha.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(textField_Senha, "cell 2 9 1 3,growx,aligny center");
+		add(textField_Senha, "cell 2 10,growx,aligny center");
 		
 		JLabel lblLogin_Senha = new JLabel("Senha: ");
-		lblLogin_Senha.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLogin_Senha.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		add(lblLogin_Senha, "cell 1 10,alignx right");
 		
 		btnLogin_Entrar = new JButton("Entrar");
 		btnLogin_Entrar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/check.png")));
 		btnLogin_Entrar.setSelectedIcon(new ImageIcon(Login.class.getResource("/icones_logos/add-file.png")));
-		btnLogin_Entrar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLogin_Entrar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		add(btnLogin_Entrar, "flowx,cell 2 12,growx,aligny center");
 		
 		btnLogin_Limpar = new JButton("Limpar");
 		btnLogin_Limpar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/eraser.png")));
-		btnLogin_Limpar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLogin_Limpar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		add(btnLogin_Limpar, "cell 2 12,growx,aligny center");
 	}
 
