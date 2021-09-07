@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import dao.Dao;
 import modelo.AutenticacaoUsuario;
 import modelo.FormularioEstagio;
-import visao.Cadastro;
 import visao.JanelaPrincipal;
 import visao.Login;
 	

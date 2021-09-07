@@ -29,7 +29,6 @@ public class JanelaPrincipal extends JFrame {
 	private JPanel contentPane;
 	private Login login;
 	private Estagiario estagiario;
-	private Cadastro cadastro;
 	private PrincipalFundo principal;
 	private Curso curso;
 	private TermoDeCompromisso termo;
@@ -161,7 +160,6 @@ public class JanelaPrincipal extends JFrame {
 		
 		principal = new PrincipalFundo();
 		login = new Login();
-		cadastro = new Cadastro();
 		curso = new Curso();
 		termo = new TermoDeCompromisso();
 		concedente = new Concedente();
@@ -169,7 +167,6 @@ public class JanelaPrincipal extends JFrame {
 		
 		contentPane.add(principal, "panelPrincipal");
 		contentPane.add(login, "panelLogin");
-		contentPane.add(cadastro, "panelCadastro");
 		contentPane.add(curso, "panelCurso");
 		contentPane.add(termo, "panelTermo");
 		contentPane.add(concedente, "panelConcedente");
@@ -179,15 +176,6 @@ public class JanelaPrincipal extends JFrame {
 
 	public CardLayout getCard() {
 		return card;
-	}
-	
-
-	public Cadastro getCadastro() {
-		return cadastro;
-	}
-
-	public void setCadastro(Cadastro cadastro) {
-		this.cadastro = cadastro;
 	}
 
 	public PrincipalFundo getPrincipal() {
