@@ -68,19 +68,6 @@ public class JanelaPrincipal extends JFrame {
 
 		
 		itemSair = new JMenuItem("Sair");
-		itemSair.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub	
-				int op = JOptionPane.showConfirmDialog(contentPane, "Deseja sair?", "SAIR", 0, 1, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/close.png")));
-				
-				if(op==JOptionPane.OK_OPTION) {
-					System.exit(0);
-				}
-			}
-			
-		});
 		itemSair.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/log-out.png")));
 		itemSair.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuLogon.add(itemSair);

@@ -29,12 +29,20 @@ public class ControleAutenticar implements ActionListener {
 		this.login = login;	
 		this.janelaPrincipal.getLogin().getBtnLogin_Limpar().addActionListener(this);
 		this.janelaPrincipal.getLogin().getBtnLogin_Entrar().addActionListener(this);
+		this.janelaPrincipal.getItemSair().addActionListener(this);
 		
 		dao = new Dao();
 		
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			
+			if(e.getActionCommand().equals("Sair")){
+				int op = JOptionPane.showConfirmDialog(janelaPrincipal.getContentPane(), "Deseja sair?", "SAIR", 0, 1, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/close.png")));
+				
+				if(op==JOptionPane.OK_OPTION) 
+					System.exit(0);
+			}
 			
 			if(e.getActionCommand().equals("Limpar")) {
 				this.janelaPrincipal.getLogin().limparLogin();
