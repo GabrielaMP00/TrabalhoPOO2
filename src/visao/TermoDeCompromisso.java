@@ -1,38 +1,41 @@
 package visao;
 
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
+
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 import java.awt.Color;
+
 import javax.swing.ImageIcon;
 import javax.swing.border.MatteBorder;
+import javax.swing.text.MaskFormatter;
+import java.text.ParseException;
+
 import java.awt.Font;
+
 import javax.swing.UIManager;
-import javax.swing.SwingConstants;
 
 public class TermoDeCompromisso extends JPanel {
-	private JFormattedTextField textFieldInicio;
+	
+	
 	private JTextField textFieldChSemanal;
-	private JFormattedTextField textFieldHorarioDeFim;
 	private JTextField textFieldBeneficios;
 	private JTextField textFieldCurso;
 	private JTextField textFieldRepresentanteUniversidade;
 	private JTextField textFieldRepresentanteEmpresa;
-	private JTextField textFieldFim;
 	private JTextField textFieldChDiaria;
 	private JTextField textFieldArea;
 	private JTextField textFieldAtividades;
 	private JTextField textFieldNomeAluno;
 	private JTextField textFieldUniversidade;
-	private JFormattedTextField textFieldCnpjEmpresa;
 	private JTextField textFieldInfoComplementares;
-	private JTextField textFieldHorarioDeInicio;
-	private JFormattedTextField textFieldValor;
-	private JFormattedTextField textFieldCpfAluno;
 	private JTextField textFieldOrientador;
 	private JTextField textFieldRazaoSocial;
 	private JButton btnCadastrar;
@@ -41,7 +44,13 @@ public class TermoDeCompromisso extends JPanel {
 	private JButton btnLimpar;
 	private JButton btnRemover;
 	private JLabel labelTermoDeCompromisso;
-	
+	private JFormattedTextField formattedTextFieldInicio;
+	private JFormattedTextField formattedTextFieldHorarioDeFim;
+	private JFormattedTextField formattedTextFieldFim;
+	private JFormattedTextField formattedTextFieldCnpjEmpresa;
+	private JFormattedTextField formattedTextFieldHorarioDeInicio;
+	private JFormattedTextField formattedTextFieldValor;
+	private JFormattedTextField formattedTextFieldCpfAluno;
 	/**
 	 * Create the panel.
 	 */
@@ -79,6 +88,8 @@ public class TermoDeCompromisso extends JPanel {
 		btnRemover.setBackground(new Color(102, 204, 255));
 		btnRemover.setIcon(new ImageIcon(TermoDeCompromisso.class.getResource("/icones_logos/trash32.png")));
 		panelBotoes.add(btnRemover);
+		
+		// ADICIONANDO OS LABELS
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
@@ -158,22 +169,24 @@ public class TermoDeCompromisso extends JPanel {
 		labelOrientador.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		panelPrincipal.add(labelOrientador, "flowx,cell 3 11,alignx left, spanx 3");
 		
-		textFieldInicio = new JTextField();
-		textFieldInicio.setText("  /  /    ");
-		textFieldInicio.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldInicio, "cell 1 1,growx");
-		textFieldInicio.setColumns(10);
+		JLabel labelRepresentanteUniversidade = new JLabel("Representante da Universidade");
+		labelRepresentanteUniversidade.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panelPrincipal.add(labelRepresentanteUniversidade, "flowx,cell 1 13,alignx left, spanx 5");
+		
+		JLabel labelRepresentanteEmpresa = new JLabel("Representante da Empresa");
+		labelRepresentanteEmpresa.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panelPrincipal.add(labelRepresentanteEmpresa, "flowx,cell 1 15,alignx left, spanx 5");
+		
+		JLabel labelInfoComplementares = new JLabel("Informa\u00E7\u00F5es Complementares");
+		labelInfoComplementares.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panelPrincipal.add(labelInfoComplementares, "flowx,cell 1 17,alignx left, spanx 5");
+		
+		// ADICIONANDO TEXTFIELDS
 		
 		textFieldChSemanal = new JTextField();
 		textFieldChSemanal.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldChSemanal, "cell 1 3,growx");
 		textFieldChSemanal.setColumns(10);
-		
-		textFieldHorarioDeFim = new JTextField();
-		textFieldHorarioDeFim.setText("   :   ");
-		textFieldHorarioDeFim.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldHorarioDeFim, "cell 1 5,growx");
-		textFieldHorarioDeFim.setColumns(10);
 		
 		textFieldBeneficios = new JTextField();
 		textFieldBeneficios.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -205,53 +218,11 @@ public class TermoDeCompromisso extends JPanel {
 		panelPrincipal.add(textFieldChDiaria, "cell 5 1,growx");
 		textFieldChDiaria.setColumns(10);
 		
-		textFieldHorarioDeInicio = new JTextField();
-		textFieldHorarioDeInicio.setText("   :   ");
-		textFieldHorarioDeInicio.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldHorarioDeInicio, "cell 5 3,growx");
-		textFieldHorarioDeInicio.setColumns(10);
-		
-		textFieldValor = new JTextField();
-		textFieldValor.setText("R$     ");
-		textFieldValor.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldValor, "cell 5 5,growx");
-		textFieldValor.setColumns(10);
-		
-		textFieldCpfAluno = new JTextField();
-		textFieldCpfAluno.setText("   .   .   -  ");
-		textFieldCpfAluno.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldCpfAluno, "cell 5 7,growx");
-		textFieldCpfAluno.setColumns(10);
-		
-		textFieldFim = new JTextField();
-		textFieldFim.setText("  /  /    ");
-		textFieldFim.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldFim, "cell 3 1,growx");
-		textFieldFim.setColumns(10);
-		
 		textFieldArea = new JTextField();
 		textFieldArea.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldArea, "cell 3 3,growx");
 		textFieldArea.setColumns(10);
-		
-		JLabel labelRepresentanteUniversidade = new JLabel("Representante da Universidade");
-		labelRepresentanteUniversidade.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelRepresentanteUniversidade, "flowx,cell 1 13,alignx left, spanx 5");
-		
-		JLabel labelRepresentanteEmpresa = new JLabel("Representante da Empresa");
-		labelRepresentanteEmpresa.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelRepresentanteEmpresa, "flowx,cell 1 15,alignx left, spanx 5");
-		
-		JLabel labelInfoComplementares = new JLabel("Informa\u00E7\u00F5es Complementares");
-		labelInfoComplementares.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelInfoComplementares, "flowx,cell 1 17,alignx left, spanx 5");
-		
-		textFieldCnpjEmpresa = new JTextField();
-		textFieldCnpjEmpresa.setText("  .   .   /    -  ");
-		textFieldCnpjEmpresa.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldCnpjEmpresa, "cell 1 11,growx");
-		textFieldCnpjEmpresa.setColumns(10);
-		
+
 		textFieldOrientador = new JTextField();
 		textFieldOrientador.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldOrientador, "cell 3 11 3 1,growx");
@@ -276,232 +247,245 @@ public class TermoDeCompromisso extends JPanel {
 		textFieldInfoComplementares.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldInfoComplementares, "cell 1 17 5 1,growx");
 		textFieldInfoComplementares.setColumns(10);
+		
+		// ADICIONANDO MASCARA NOS TEXTFIELDS QUE POSSUEM FORMATAÇÃO
+		
+		MaskFormatter mascaraInicio;
+		MaskFormatter mascaraHorarioDeFim;
+		MaskFormatter mascaraFim;
+		MaskFormatter mascaraCnpjEmpresa;
+		MaskFormatter mascaraHorarioDeInicio;
+		MaskFormatter mascaraValor;
+		MaskFormatter mascaraCpfAluno;
+				
+		try {
+			mascaraInicio= new MaskFormatter("##/##/####");		 
+			mascaraInicio.setPlaceholder(" ");
+			mascaraHorarioDeFim = new MaskFormatter("##:##");
+			mascaraHorarioDeFim.setPlaceholder(" ");
+			mascaraFim= new MaskFormatter("##/##/####");		 
+		    mascaraFim.setPlaceholder(" ");
+			mascaraCnpjEmpresa = new MaskFormatter("##.###.###/####-##");
+			mascaraCnpjEmpresa.setPlaceholder(" ");
+			mascaraHorarioDeInicio = new MaskFormatter("##:##");	 
+		    mascaraHorarioDeInicio.setPlaceholder(" ");
+			mascaraValor = new MaskFormatter("R$###");
+			mascaraValor.setPlaceholder(" ");
+			mascaraCpfAluno = new MaskFormatter("###.###.###-##");
+			mascaraCpfAluno.setPlaceholder(" ");
+			
+			formattedTextFieldInicio = new JFormattedTextField(mascaraInicio);
+			formattedTextFieldInicio.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldInicio, "cell 1 1,growx");
+			formattedTextFieldHorarioDeFim = new JFormattedTextField(mascaraFim);
+			formattedTextFieldHorarioDeFim.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldHorarioDeFim, "cell 1 5,growx");
+			formattedTextFieldFim = new JFormattedTextField(mascaraFim);
+			formattedTextFieldFim.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldFim, "cell 3 1,growx");
+			formattedTextFieldCnpjEmpresa = new JFormattedTextField(mascaraCnpjEmpresa);
+			formattedTextFieldCnpjEmpresa.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldCnpjEmpresa, "cell 1 11,growx");
+			formattedTextFieldHorarioDeInicio = new JFormattedTextField(mascaraHorarioDeInicio);
+			formattedTextFieldHorarioDeInicio.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldHorarioDeInicio, "cell 5 3,growx");
+			formattedTextFieldValor = new JFormattedTextField(mascaraValor);
+			formattedTextFieldValor.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldValor, "cell 5 5,growx");
+			formattedTextFieldCpfAluno = new JFormattedTextField(mascaraCpfAluno);
+			formattedTextFieldCpfAluno.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			panelPrincipal.add(formattedTextFieldCpfAluno, "cell 5 7,growx");
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	
 
 	}
 	//GETTERS E SETTERS
-
-	public JTextField getTextFieldInicio() {
-		return textFieldInicio;
-	}
-
-	public void setTextFieldInicio(JTextField textFieldInicio) {
-		this.textFieldInicio = textFieldInicio;
-	}
-
+	
 	public JTextField getTextFieldChSemanal() {
 		return textFieldChSemanal;
 	}
-
 	public void setTextFieldChSemanal(JTextField textFieldChSemanal) {
 		this.textFieldChSemanal = textFieldChSemanal;
 	}
-
-	public JTextField getTextFieldHorarioDeFim() {
-		return textFieldHorarioDeFim;
-	}
-
-	public void setTextFieldHorarioDeFim(JTextField textFieldHorarioDeFim) {
-		this.textFieldHorarioDeFim = textFieldHorarioDeFim;
-	}
-
 	public JTextField getTextFieldBeneficios() {
 		return textFieldBeneficios;
 	}
-
 	public void setTextFieldBeneficios(JTextField textFieldBeneficios) {
 		this.textFieldBeneficios = textFieldBeneficios;
 	}
-
 	public JTextField getTextFieldCurso() {
 		return textFieldCurso;
 	}
-
 	public void setTextFieldCurso(JTextField textFieldCurso) {
 		this.textFieldCurso = textFieldCurso;
 	}
-
 	public JTextField getTextFieldRepresentanteUniversidade() {
 		return textFieldRepresentanteUniversidade;
 	}
-
-	public void setTextFieldRepresentanteUniversidade(JTextField textFieldRepresentanteUniversidade) {
+	public void setTextFieldRepresentanteUniversidade(
+			JTextField textFieldRepresentanteUniversidade) {
 		this.textFieldRepresentanteUniversidade = textFieldRepresentanteUniversidade;
 	}
-
 	public JTextField getTextFieldRepresentanteEmpresa() {
 		return textFieldRepresentanteEmpresa;
 	}
-
-	public void setTextFieldRepresentanteEmpresa(JTextField textFieldRepresentanteEmpresa) {
+	public void setTextFieldRepresentanteEmpresa(
+			JTextField textFieldRepresentanteEmpresa) {
 		this.textFieldRepresentanteEmpresa = textFieldRepresentanteEmpresa;
 	}
-
-	public JTextField getTextFieldFim() {
-		return textFieldFim;
-	}
-
-	public void setTextFieldFim(JTextField textFieldFim) {
-		this.textFieldFim = textFieldFim;
-	}
-
 	public JTextField getTextFieldChDiaria() {
 		return textFieldChDiaria;
 	}
-
 	public void setTextFieldChDiaria(JTextField textFieldChDiaria) {
 		this.textFieldChDiaria = textFieldChDiaria;
 	}
-
 	public JTextField getTextFieldArea() {
 		return textFieldArea;
 	}
-
 	public void setTextFieldArea(JTextField textFieldArea) {
 		this.textFieldArea = textFieldArea;
 	}
-
 	public JTextField getTextFieldAtividades() {
 		return textFieldAtividades;
 	}
-
 	public void setTextFieldAtividades(JTextField textFieldAtividades) {
 		this.textFieldAtividades = textFieldAtividades;
 	}
-
 	public JTextField getTextFieldNomeAluno() {
 		return textFieldNomeAluno;
 	}
-
 	public void setTextFieldNomeAluno(JTextField textFieldNomeAluno) {
 		this.textFieldNomeAluno = textFieldNomeAluno;
 	}
-
 	public JTextField getTextFieldUniversidade() {
 		return textFieldUniversidade;
 	}
-
 	public void setTextFieldUniversidade(JTextField textFieldUniversidade) {
 		this.textFieldUniversidade = textFieldUniversidade;
 	}
-
-	public JTextField getTextFieldCnpjEmpresa() {
-		return textFieldCnpjEmpresa;
-	}
-
-	public void setTextFieldCnpjEmpresa(JTextField textFieldCnpjEmpresa) {
-		this.textFieldCnpjEmpresa = textFieldCnpjEmpresa;
-	}
-
 	public JTextField getTextFieldInfoComplementares() {
 		return textFieldInfoComplementares;
 	}
-
-	public void setTextFieldInfoComplementares(JTextField textFieldInfoComplementares) {
+	public void setTextFieldInfoComplementares(
+			JTextField textFieldInfoComplementares) {
 		this.textFieldInfoComplementares = textFieldInfoComplementares;
 	}
-
-	public JTextField getTextFieldHorarioDeInicio() {
-		return textFieldHorarioDeInicio;
-	}
-
-	public void setTextFieldHorarioDeInicio(JTextField textFieldHorarioDeInicio) {
-		this.textFieldHorarioDeInicio = textFieldHorarioDeInicio;
-	}
-
-	public JTextField getTextFieldValor() {
-		return textFieldValor;
-	}
-
-	public void setTextFieldValor(JTextField textFieldValor) {
-		this.textFieldValor = textFieldValor;
-	}
-
-	public JTextField getTextFieldCpfAluno() {
-		return textFieldCpfAluno;
-	}
-
-	public void setTextFieldCpfAluno(JTextField textFieldCpfAluno) {
-		this.textFieldCpfAluno = textFieldCpfAluno;
-	}
-
 	public JTextField getTextFieldOrientador() {
 		return textFieldOrientador;
 	}
-
 	public void setTextFieldOrientador(JTextField textFieldOrientador) {
 		this.textFieldOrientador = textFieldOrientador;
 	}
-
 	public JTextField getTextFieldRazaoSocial() {
 		return textFieldRazaoSocial;
 	}
-
 	public void setTextFieldRazaoSocial(JTextField textFieldRazaoSocial) {
 		this.textFieldRazaoSocial = textFieldRazaoSocial;
 	}
-
 	public JButton getBtnCadastrar() {
 		return btnCadastrar;
 	}
-
 	public void setBtnCadastrar(JButton btnCadastrar) {
 		this.btnCadastrar = btnCadastrar;
 	}
-
 	public JButton getBtnAtualizar() {
 		return btnAtualizar;
 	}
-
 	public void setBtnAtualizar(JButton btnAtualizar) {
 		this.btnAtualizar = btnAtualizar;
 	}
-
 	public JButton getBtnConsultar() {
 		return btnConsultar;
 	}
-
 	public void setBtnConsultar(JButton btnConsultar) {
 		this.btnConsultar = btnConsultar;
 	}
-
 	public JButton getBtnLimpar() {
 		return btnLimpar;
 	}
-
 	public void setBtnLimpar(JButton btnLimpar) {
 		this.btnLimpar = btnLimpar;
 	}
-
 	public JButton getBtnRemover() {
 		return btnRemover;
 	}
-
 	public void setBtnRemover(JButton btnRemover) {
 		this.btnRemover = btnRemover;
 	}
-	
+	public JFormattedTextField getFormattedTextFieldInicio() {
+		return formattedTextFieldInicio;
+	}
+	public void setFormattedTextFieldInicio(
+			JFormattedTextField formattedTextFieldInicio) {
+		this.formattedTextFieldInicio = formattedTextFieldInicio;
+	}
+	public JFormattedTextField getFormattedTextFieldHorarioDeFim() {
+		return formattedTextFieldHorarioDeFim;
+	}
+	public void setFormattedTextFieldHorarioDeFim(
+			JFormattedTextField formattedTextFieldHorarioDeFim) {
+		this.formattedTextFieldHorarioDeFim = formattedTextFieldHorarioDeFim;
+	}
+	public JFormattedTextField getFormattedTextFieldFim() {
+		return formattedTextFieldFim;
+	}
+	public void setFormattedTextFieldFim(JFormattedTextField formattedTextFieldFim) {
+		this.formattedTextFieldFim = formattedTextFieldFim;
+	}
+	public JFormattedTextField getFormattedTextFieldCnpjEmpresa() {
+		return formattedTextFieldCnpjEmpresa;
+	}
+	public void setFormattedTextFieldCnpjEmpresa(
+			JFormattedTextField formattedTextFieldCnpjEmpresa) {
+		this.formattedTextFieldCnpjEmpresa = formattedTextFieldCnpjEmpresa;
+	}
+	public JFormattedTextField getFormattedTextFieldHorarioDeInicio() {
+		return formattedTextFieldHorarioDeInicio;
+	}
+	public void setFormattedTextFieldHorarioDeInicio(
+			JFormattedTextField formattedTextFieldHorarioDeInicio) {
+		this.formattedTextFieldHorarioDeInicio = formattedTextFieldHorarioDeInicio;
+	}
+	public JFormattedTextField getFormattedTextFieldValor() {
+		return formattedTextFieldValor;
+	}
+	public void setFormattedTextFieldValor(
+			JFormattedTextField formattedTextFieldValor) {
+		this.formattedTextFieldValor = formattedTextFieldValor;
+	}
+	public JFormattedTextField getFormattedTextFieldCpfAluno() {
+		return formattedTextFieldCpfAluno;
+	}
+	public void setFormattedTextFieldCpfAluno(
+			JFormattedTextField formattedTextFieldCpfAluno) {
+		this.formattedTextFieldCpfAluno = formattedTextFieldCpfAluno;
+	}
 	
 	//FUNÇAO LIMPAR CAMPOS 
+		
 	public void limparTermo() {
-		getTextFieldInicio().setText("");
-		getTextFieldChSemanal().setText("");
-		getTextFieldHorarioDeFim().setText("");
-		getTextFieldBeneficios().setText("");
-		getTextFieldCurso().setText("");
-		getTextFieldRepresentanteUniversidade().setText("");
-		getTextFieldFim().setText("");
-		getTextFieldChDiaria().setText("");
-		getTextFieldArea().setText("");
-		getTextFieldAtividades().setText("");
-		getTextFieldNomeAluno().setText("");
-		getTextFieldUniversidade().setText("");
-		getTextFieldCnpjEmpresa().setText("");
-		getTextFieldInfoComplementares().setText("");
-		getTextFieldHorarioDeInicio().setText("");
-		getTextFieldValor().setText("");
-		getTextFieldCpfAluno().setText("");
-		getTextFieldOrientador().setText("");
-		getTextFieldRazaoSocial().setText("");
-	}
+			getFormattedTextFieldInicio().setText("");
+			getTextFieldChSemanal().setText("");
+			getFormattedTextFieldHorarioDeFim().setText("");
+			getTextFieldBeneficios().setText("");
+			getTextFieldCurso().setText("");
+			getTextFieldRepresentanteUniversidade().setText("");
+			getFormattedTextFieldFim().setText("");
+			getTextFieldChDiaria().setText("");
+			getTextFieldArea().setText("");
+			getTextFieldAtividades().setText("");
+			getTextFieldNomeAluno().setText("");
+			getTextFieldUniversidade().setText("");
+			getFormattedTextFieldCnpjEmpresa().setText("");
+			getTextFieldInfoComplementares().setText("");
+			getFormattedTextFieldHorarioDeInicio().setText("");
+			getFormattedTextFieldValor().setText("");
+			getFormattedTextFieldCpfAluno().setText("");
+			getTextFieldOrientador().setText("");
+			getTextFieldRazaoSocial().setText("");
+		}
 
 }

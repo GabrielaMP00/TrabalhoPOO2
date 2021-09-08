@@ -21,17 +21,16 @@ public class Concedente extends JPanel {
 	private JTextField textFieldCargoRepresentante;
 	private JTextField textFieldEndereco;
 	private JTextField textFieldCidade;
-	private JTextField textFieldCNPJ;
 	private JTextField textFieldRepresentante;
 	private JTextField textFieldCep;
 	private JTextField textFieldEstado;
 	private JTextField textFieldBairro;
+	private JLabel labelConcedente;
 	private JButton btnCadastrar;
 	private JButton btnAtualizar;
 	private JButton btnConsultar;
 	private JButton btnLimpar;
 	private JButton btnRemover;
-	private JLabel labelConcedente;
 	private JFormattedTextField formattedTextFieldTelefone;
 	private JFormattedTextField formattedTextFieldCEP;
 	private JFormattedTextField formattedTextFieldCNPJ;
@@ -75,7 +74,7 @@ public class Concedente extends JPanel {
 		btnRemover.setBackground(new Color(102, 204, 255));
 		panelBotoes.add(btnRemover);
 		
-		//FIM BOTÕES
+		// ADICIONANDO OS LABELS
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
@@ -122,6 +121,12 @@ public class Concedente extends JPanel {
 		JLabel labelTelefone = new JLabel("Telefone");
 		labelTelefone.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		panelPrincipal.add(labelTelefone, "flowx,cell 4 3 2 1");
+
+		JLabel labelRepresentante = new JLabel("Representante");
+		labelRepresentante.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		panelPrincipal.add(labelRepresentante, "flowx,cell 1 3, spanx 2");
+		
+		// ADICIONANDO TEXTFIELDS
 		
 		textFieldRazaoSocial = new JTextField();
 		textFieldRazaoSocial.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -143,7 +148,22 @@ public class Concedente extends JPanel {
 		panelPrincipal.add(textFieldCidade, "cell 1 9 2 1,growx");
 		textFieldCidade.setColumns(10);
 		
-		//INÍCIO DAS ADIÇÃO DE MAKS NOS TEXTFIELD
+		textFieldEstado = new JTextField();
+		textFieldEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panelPrincipal.add(textFieldEstado, "cell 4 7 2 1,growx");
+		textFieldEstado.setColumns(10);
+		
+		textFieldBairro = new JTextField();
+		textFieldBairro.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panelPrincipal.add(textFieldBairro, "cell 4 9 2 1,growx");
+		textFieldBairro.setColumns(10);
+		
+		textFieldRepresentante = new JTextField();
+		textFieldRepresentante.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panelPrincipal.add(textFieldRepresentante, "cell 1 3 2 1,growx");
+		textFieldRepresentante.setColumns(10);
+		
+		//INÍCIO DAS ADIÇÃO DE MASKS NOS TEXTFIELD
 		
 		MaskFormatter mascaraCEP;
 		MaskFormatter mascaraTelefone;
@@ -155,6 +175,8 @@ public class Concedente extends JPanel {
 			mascaraCEP = new MaskFormatter("#####-###");
 			mascaraCEP.setPlaceholder(" ");
 			mascaraCNPJ = new MaskFormatter("##.###.###/####-##");
+			mascaraCNPJ.setPlaceholder(" ");
+			
 			formattedTextFieldCEP = new JFormattedTextField(mascaraCEP);
 			formattedTextFieldCEP.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			panelPrincipal.add(formattedTextFieldCEP, "cell 4 5 2 1,growx");
@@ -170,28 +192,34 @@ public class Concedente extends JPanel {
 		}
 		
 		///FIM DA ADIÇÃO DE MAKS NOS TEXTFIELD
-		
-		textFieldEstado = new JTextField();
-		textFieldEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldEstado, "cell 4 7 2 1,growx");
-		textFieldEstado.setColumns(10);
-		
-		textFieldBairro = new JTextField();
-		textFieldBairro.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldBairro, "cell 4 9 2 1,growx");
-		textFieldBairro.setColumns(10);
-		
-		JLabel labelRepresentante = new JLabel("Representante");
-		labelRepresentante.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		panelPrincipal.add(labelRepresentante, "flowx,cell 1 3, spanx 2");
-		
-		textFieldRepresentante = new JTextField();
-		textFieldRepresentante.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panelPrincipal.add(textFieldRepresentante, "cell 1 3 2 1,growx");
-		textFieldRepresentante.setColumns(10);
 
 	}
 	//GETTERS E SETTERS
+
+	public JFormattedTextField getFormattedTextFieldTelefone() {
+		return formattedTextFieldTelefone;
+	}
+
+	public void setFormattedTextFieldTelefone(
+			JFormattedTextField formattedTextFieldTelefone) {
+		this.formattedTextFieldTelefone = formattedTextFieldTelefone;
+	}
+
+	public JFormattedTextField getFormattedTextFieldCEP() {
+		return formattedTextFieldCEP;
+	}
+
+	public void setFormattedTextFieldCEP(JFormattedTextField formattedTextFieldCEP) {
+		this.formattedTextFieldCEP = formattedTextFieldCEP;
+	}
+
+	public JFormattedTextField getFormattedTextFieldCNPJ() {
+		return formattedTextFieldCNPJ;
+	}
+
+	public void setFormattedTextFieldCNPJ(JFormattedTextField formattedTextFieldCNPJ) {
+		this.formattedTextFieldCNPJ = formattedTextFieldCNPJ;
+	}
 
 	public JTextField getTextFieldRazaoSocial() {
 		return textFieldRazaoSocial;
@@ -231,14 +259,6 @@ public class Concedente extends JPanel {
 
 	public void setTextFieldCidade(JTextField textFieldCidade) {
 		this.textFieldCidade = textFieldCidade;
-	}
-
-	public JTextField getTextFieldCnpj() {
-		return textFieldCNPJ;
-	}
-
-	public void setTextFieldCnpj(JTextField textFieldCnpj) {
-		this.textFieldCNPJ = textFieldCnpj;
 	}
 
 	public JTextField getTextFieldRepresentante() {
