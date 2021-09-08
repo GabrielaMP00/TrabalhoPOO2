@@ -27,7 +27,7 @@ public class JanelaPrincipal extends JFrame {
 	
 	private CardLayout card;
 	private JPanel contentPane;
-	private Login login;
+	private Logon login;
 	private Estagiario estagiario;
 	private PrincipalFundo principal;
 	private Curso curso;
@@ -162,7 +162,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setLayout(card);
 		
 		principal = new PrincipalFundo();
-		login = new Login();
+		login = new Logon();
 		curso = new Curso();
 		termo = new TermoDeCompromisso();
 		concedente = new Concedente();
@@ -193,11 +193,11 @@ public class JanelaPrincipal extends JFrame {
 		this.card = card;
 	}
 
-	public Login getLogin() {
+	public Logon getLogin() {
 		return login;
 	}
 
-	public void setLogin(Login login) {
+	public void setLogin(Logon login) {
 		this.login = login;
 	}
 

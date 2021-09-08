@@ -308,5 +308,121 @@ public class Estagiario extends JPanel {
 	}
 	
 	
+	public JTextField getTextFieldNome() {
+		return textFieldNome;
+	}
+
+	public void setTextFieldNome(JTextField textFieldNome) {
+		this.textFieldNome = textFieldNome;
+	}
+
+	public JTextField getTextFieldEndereco() {
+		return textFieldEndereco;
+	}
+
+	public void setTextFieldEndereco(JTextField textFieldEndereco) {
+		this.textFieldEndereco = textFieldEndereco;
+	}
+
+	public JFormattedTextField getFormattedTextFieldTelefone() {
+		return formattedTextFieldTelefone;
+	}
+
+	public void setFormattedTextFieldTelefone(JFormattedTextField formattedTextFieldTelefone) {
+		this.formattedTextFieldTelefone = formattedTextFieldTelefone;
+	}
+
+	public JFormattedTextField getFormattedTextFieldCEP() {
+		return formattedTextFieldCEP;
+	}
+
+	public void setFormattedTextFieldCEP(JFormattedTextField formattedTextFieldCEP) {
+		this.formattedTextFieldCEP = formattedTextFieldCEP;
+	}
+
+	public JFormattedTextField getFormattedTextFieldCPF() {
+		return formattedTextFieldCPF;
+	}
+
+	public void setFormattedTextFieldCPF(JFormattedTextField formattedTextFieldCPF) {
+		this.formattedTextFieldCPF = formattedTextFieldCPF;
+	}
+
+	public JRadioButton getRadioFeminino() {
+		return radioFeminino;
+	}
+
+	public void setRadioFeminino(JRadioButton radioFeminino) {
+		this.radioFeminino = radioFeminino;
+	}
+
+	public JRadioButton getRadioMasculino() {
+		return radioMasculino;
+	}
+
+	public void setRadioMasculino(JRadioButton radioMasculino) {
+		this.radioMasculino = radioMasculino;
+	}
+
+	public JTextField getTextFieldCurso() {
+		return textFieldCurso;
+	}
+
+	public void setTextFieldCurso(JTextField textFieldCurso) {
+		this.textFieldCurso = textFieldCurso;
+	}
+
+	public JTextField getTextFieldIngresso() {
+		return textFieldIngresso;
+	}
+
+	public void setTextFieldIngresso(JTextField textFieldIngresso) {
+		this.textFieldIngresso = textFieldIngresso;
+	}
+
+	public JFormattedTextField getFormattedTextFieldData() {
+		return formattedTextFieldData;
+	}
+
+	public void setFormattedTextFieldData(JFormattedTextField formattedTextFieldData) {
+		this.formattedTextFieldData = formattedTextFieldData;
+	}
+
+	public JFormattedTextField getFormattedTextFieldCelular() {
+		return formattedTextFieldCelular;
+	}
+
+	public void setFormattedTextFieldCelular(JFormattedTextField formattedTextFieldCelular) {
+		this.formattedTextFieldCelular = formattedTextFieldCelular;
+	}
+
+	public ButtonGroup getBotaoGrupo() {
+		return botaoGrupo;
+	}
+
+	public void setBotaoGrupo(ButtonGroup botaoGrupo) {
+		this.botaoGrupo = botaoGrupo;
+	}
+
+	public void limparEstagiario() {
+		getTextFieldRazaoSocial().setText("");
+		getTextFieldCidade().setText("");
+		getTextFieldEstado().setText("");
+		getTextFieldBairro().setText("");
+		getTextFieldNome().setText("");
+		getTextFieldEndereco().setText("");
+		getFormattedTextFieldTelefone().setText("");
+		getTextFieldCurso().setText("");
+		getBotaoGrupo().setSelected(null, getFocusTraversalKeysEnabled());
+		getFormattedTextFieldCelular().setText("");
+		getFormattedTextFieldData().setText(""); 
+		getTextFieldIngresso().setText("");
+		getFormattedTextFieldCPF().setText("");
+		getFormattedTextFieldCEP().setText("");
+		
+		
+	}
+	
+	
 
 }

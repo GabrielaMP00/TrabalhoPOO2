@@ -8,19 +8,18 @@ import javax.swing.JOptionPane;
 
 import dao.Dao;
 import modelo.AutenticacaoUsuario;
-import modelo.FormularioEstagio;
 import visao.JanelaPrincipal;
-import visao.Login;
+import visao.Logon;
 
 	
 public class ControleAutenticar implements ActionListener {
 	private AutenticacaoUsuario autenticacao;
 	private JanelaPrincipal janelaPrincipal;
-	private Login login;
+	private Logon login;
 	private Dao dao;
 	
 	//incializando as classes e adicionando listeners nos botões
-	public ControleAutenticar(AutenticacaoUsuario autenticacao, JanelaPrincipal janelaPrincipal, Login login) {
+	public ControleAutenticar(AutenticacaoUsuario autenticacao, JanelaPrincipal janelaPrincipal, Logon login) {
 		super();
 		this.autenticacao = autenticacao;
 		this.janelaPrincipal = janelaPrincipal;

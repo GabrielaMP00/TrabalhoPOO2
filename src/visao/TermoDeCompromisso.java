@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Color;
@@ -14,9 +15,9 @@ import javax.swing.UIManager;
 import javax.swing.SwingConstants;
 
 public class TermoDeCompromisso extends JPanel {
-	private JTextField textFieldInicio;
+	private JFormattedTextField textFieldInicio;
 	private JTextField textFieldChSemanal;
-	private JTextField textFieldHorarioDeFim;
+	private JFormattedTextField textFieldHorarioDeFim;
 	private JTextField textFieldBeneficios;
 	private JTextField textFieldCurso;
 	private JTextField textFieldRepresentanteUniversidade;
@@ -27,11 +28,11 @@ public class TermoDeCompromisso extends JPanel {
 	private JTextField textFieldAtividades;
 	private JTextField textFieldNomeAluno;
 	private JTextField textFieldUniversidade;
-	private JTextField textFieldCnpjEmpresa;
+	private JFormattedTextField textFieldCnpjEmpresa;
 	private JTextField textFieldInfoComplementares;
 	private JTextField textFieldHorarioDeInicio;
-	private JTextField textFieldValor;
-	private JTextField textFieldCpfAluno;
+	private JFormattedTextField textFieldValor;
+	private JFormattedTextField textFieldCpfAluno;
 	private JTextField textFieldOrientador;
 	private JTextField textFieldRazaoSocial;
 	private JButton btnCadastrar;
@@ -477,6 +478,30 @@ public class TermoDeCompromisso extends JPanel {
 
 	public void setBtnRemover(JButton btnRemover) {
 		this.btnRemover = btnRemover;
+	}
+	
+	
+	//FUNÇAO LIMPAR CAMPOS 
+	public void limparTermo() {
+		getTextFieldInicio().setText("");
+		getTextFieldChSemanal().setText("");
+		getTextFieldHorarioDeFim().setText("");
+		getTextFieldBeneficios().setText("");
+		getTextFieldCurso().setText("");
+		getTextFieldRepresentanteUniversidade().setText("");
+		getTextFieldFim().setText("");
+		getTextFieldChDiaria().setText("");
+		getTextFieldArea().setText("");
+		getTextFieldAtividades().setText("");
+		getTextFieldNomeAluno().setText("");
+		getTextFieldUniversidade().setText("");
+		getTextFieldCnpjEmpresa().setText("");
+		getTextFieldInfoComplementares().setText("");
+		getTextFieldHorarioDeInicio().setText("");
+		getTextFieldValor().setText("");
+		getTextFieldCpfAluno().setText("");
+		getTextFieldOrientador().setText("");
+		getTextFieldRazaoSocial().setText("");
 	}
 
 }

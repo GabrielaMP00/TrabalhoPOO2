@@ -14,14 +14,14 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JPasswordField;
 
-public class Login extends JPanel {
+public class Logon extends JPanel {
 	private JTextField textField_Usuario;
 	private JButton btnLogin_Entrar;
 	private JButton btnLogin_Limpar;
 	private JButton btnLogin_Sair;
 	private JPasswordField textField_Senha;
 
-	public Login() {
+	public Logon() {
 		setBackground(new Color(240, 250, 255));
 		setBounds(100, 100, 800, 500);
 		setLayout(new MigLayout("", "[100,grow][100,center][100,center][100,center][100,grow]", "[25,grow][25][25][25][25,center][25][28.00][25][25][25][][11.00][25][25][25,grow]"));
@@ -34,7 +34,7 @@ public class Login extends JPanel {
 		JLabel imagemLogo = new JLabel(" ");
 		add(imagemLogo, "cell 1 3 3 4,alignx center,aligny center");
 		try {
-			imagemLogo.setIcon(new ImageIcon(ImageIO.read(Login.class.getResource(
+			imagemLogo.setIcon(new ImageIcon(ImageIO.read(Logon.class.getResource(
 					"/icones_logos/login-grande.png")).getScaledInstance(120, 120, BufferedImage.TYPE_INT_RGB)));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -59,13 +59,13 @@ public class Login extends JPanel {
 		
 		//ADICIONANDO BOTOES DE ENTRAR E LIMPAR
 		btnLogin_Entrar = new JButton("Entrar");
-		btnLogin_Entrar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/check.png")));
-		btnLogin_Entrar.setSelectedIcon(new ImageIcon(Login.class.getResource("/icones_logos/add-file.png")));
+		btnLogin_Entrar.setIcon(new ImageIcon(Logon.class.getResource("/icones_logos/check.png")));
+		btnLogin_Entrar.setSelectedIcon(new ImageIcon(Logon.class.getResource("/icones_logos/add-file.png")));
 		btnLogin_Entrar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		add(btnLogin_Entrar, "flowx,cell 2 12,growx,aligny center");
 		
 		btnLogin_Limpar = new JButton("Limpar");
-		btnLogin_Limpar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/eraser.png")));
+		btnLogin_Limpar.setIcon(new ImageIcon(Logon.class.getResource("/icones_logos/eraser.png")));
 		btnLogin_Limpar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		add(btnLogin_Limpar, "cell 2 12,growx,aligny center");
 	}

@@ -387,5 +387,23 @@ public class Curso extends JPanel {
 	public void setBtnRemover(JButton btnRemover) {
 		this.btnRemover = btnRemover;
 	}
+	
+	public void limparCurso() {
+		getTextFieldUniversidade().setText(""); 
+		getTextFieldCurso().setText(""); 
+		getTextFielCodigo().setText(""); 
+		getTextFieldCargoRepre().setText("");  
+		getTextFieldCnpj().setText("");  
+		getTextFieldEndereco().setText("");  
+		getTextFieldCidade().setText(""); 
+		getTextFieldTelUniversidade().setText("");  
+		getTextFieldCargoRepresentanteUni().setText("");  
+		getTextFieldRepreCoordenacao().setText("");  
+		getTextFieldTelCoordenacao().setText("");  
+		getTextFieldCep().setText(""); 
+		getTextFieldEstado().setText(""); 
+		getTextFieldBairro().setText(""); 
+		getTextFieldRepresentanteUni().setText("");  
+	}
 
 }
