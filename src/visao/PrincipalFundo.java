@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 public class PrincipalFundo extends JPanel {
 	
 	public PrincipalFundo() {
+		//JPANEL COM O LAYOUT DE FUNDO DA JANELAPRINCIPAL COM LOGO DA UFCSPA
 		setLayout(new CardLayout(0, 0));
 		setBounds(100, 100, 950, 550);
 		setBackground(new Color(240, 250, 255));

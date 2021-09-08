@@ -52,7 +52,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		itemAutenticar = new JMenuItem("Autenticar");
 		itemAutenticar.addActionListener(new ActionListener() {
-
+			//ADICIONANDO ACTION LISTENER PARA ALTERAR AS PAGINAS NO CARDLAYOUT
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -74,10 +74,11 @@ public class JanelaPrincipal extends JFrame {
 		menuGerenciar = new JMenu("Gerenciar");
 		menuGerenciar.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuBar.add(menuGerenciar);
+		menuGerenciar.setEnabled(false);
 		
 		itemEstagiario = new JMenuItem("Estagi\u00E1rio");
 		itemEstagiario.addActionListener(new ActionListener() {
-
+			//ADICIONANDO ACTION LISTENER PARA ALTERAR AS PAGINAS NO CARDLAYOUT
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -92,7 +93,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		itemCurso = new JMenuItem("Curso");
 		itemCurso.addActionListener(new ActionListener() {
-
+			//ADICIONANDO ACTION LISTENER PARA ALTERAR AS PAGINAS NO CARDLAYOUT
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -107,7 +108,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		itemConcedente = new JMenuItem("Concedente");
 		itemConcedente.addActionListener(new ActionListener() {
-
+			//ADICIONANDO ACTION LISTENER PARA ALTERAR AS PAGINAS NO CARDLAYOUT
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -122,7 +123,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		itemTermo = new JMenuItem("Termo de Compromisso");
 		itemTermo.addActionListener(new ActionListener() {
-
+			//ADICIONANDO ACTION LISTENER PARA ALTERAR AS PAGINAS NO CARDLAYOUT
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -137,7 +138,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() 
-		{
+		{//ADICIONANDO ACTION LISTENER PARA ALTERAR AS PAGINAS NO CARDLAYOUT
 			public void actionPerformed(ActionEvent e) 
 			{
 				card.show(contentPane, "panelPrincipal");
@@ -154,7 +155,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		//######################################################
-		
+		//ADICIONANDO CARDLAYOUT PARA ALTERAR OS PANELS NA JANELA PRINCIPAL
 		card = new CardLayout( 0, 0 );
 		contentPane.setLayout(card);
 		
@@ -173,7 +174,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.add(estagiario, "panelEstagiario");
 
 	}
-
+	//GETTERS E SETTERS
 	public CardLayout getCard() {
 		return card;
 	}

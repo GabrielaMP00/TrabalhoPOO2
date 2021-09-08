@@ -46,6 +46,8 @@ public class Curso extends JPanel {
 		panel.setBackground(new Color(255, 255, 255));
 		add(panel, BorderLayout.SOUTH);
 		
+		//INICIO BOTOES
+		
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/add-documents (1).png")));
 		btnCadastrar.setBackground(new Color(102, 204, 255));
@@ -70,6 +72,8 @@ public class Curso extends JPanel {
 		btnRemover.setIcon(new ImageIcon(Curso.class.getResource("/icones_logos/trash32.png")));
 		btnRemover.setBackground(new Color(102, 204, 255));
 		panel.add(btnRemover);
+		
+		//FIM BOTOES
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
@@ -221,6 +225,8 @@ public class Curso extends JPanel {
 		textFieldTelUniversidade.setColumns(10);
 
 	}
+	
+	//GETTERS E SETTERS
 
 	public JTextField getTextFieldUniversidade() {
 		return textFieldUniversidade;

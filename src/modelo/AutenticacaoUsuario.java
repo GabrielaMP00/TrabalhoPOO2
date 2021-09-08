@@ -1,8 +1,8 @@
 package modelo;
 
 public class AutenticacaoUsuario {
-	private String usuario; //admin
-	private String senha; //admin
+	private String usuario; //gabi
+	private String senha; //123456
 	
 	public AutenticacaoUsuario(){}
 

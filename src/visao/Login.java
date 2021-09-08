@@ -30,6 +30,7 @@ public class Login extends JPanel {
 		lblAutenticacaoUsuario.setFont(new Font("Segoe UI", Font.BOLD, 30));
 		add(lblAutenticacaoUsuario, "cell 1 1 3 1,alignx center,aligny bottom");
 		
+		//ADICIONANDO ICON DE LOGIN 
 		JLabel imagemLogo = new JLabel(" ");
 		add(imagemLogo, "cell 1 3 3 4,alignx center,aligny center");
 		try {
@@ -56,6 +57,7 @@ public class Login extends JPanel {
 		lblLogin_Senha.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		add(lblLogin_Senha, "cell 1 10,alignx right");
 		
+		//ADICIONANDO BOTOES DE ENTRAR E LIMPAR
 		btnLogin_Entrar = new JButton("Entrar");
 		btnLogin_Entrar.setIcon(new ImageIcon(Login.class.getResource("/icones_logos/check.png")));
 		btnLogin_Entrar.setSelectedIcon(new ImageIcon(Login.class.getResource("/icones_logos/add-file.png")));
@@ -107,7 +109,7 @@ public class Login extends JPanel {
 	public void setTextField_Senha(JPasswordField textField_Senha) {
 		this.textField_Senha = textField_Senha;
 	}
-	
+	//FUNÇAO LIMPAR CAMPOS DE USUARIO E SENHA
 	public void limparLogin() {
 		getTextField_Usuario().setText("");
 		getTextField_Senha().setText("");

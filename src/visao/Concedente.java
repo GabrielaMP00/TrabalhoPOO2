@@ -48,6 +48,8 @@ public class Concedente extends JPanel {
 		JPanel panelBotoes = new JPanel();
 		add(panelBotoes, BorderLayout.SOUTH);
 		
+		//INÍCIO BOTÕES
+		
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setIcon(new ImageIcon(Concedente.class.getResource("/icones_logos/add-documents (1).png")));
 		btnCadastrar.setBackground(new Color(102, 204, 255));
@@ -72,6 +74,8 @@ public class Concedente extends JPanel {
 		btnRemover.setIcon(new ImageIcon(Concedente.class.getResource("/icones_logos/trash32.png")));
 		btnRemover.setBackground(new Color(102, 204, 255));
 		panelBotoes.add(btnRemover);
+		
+		//FIM BOTÕES
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
@@ -139,6 +143,8 @@ public class Concedente extends JPanel {
 		panelPrincipal.add(textFieldCidade, "cell 1 9 2 1,growx");
 		textFieldCidade.setColumns(10);
 		
+		//INÍCIO DAS ADIÇÃO DE MAKS NOS TEXTFIELD
+		
 		MaskFormatter mascaraCEP;
 		MaskFormatter mascaraTelefone;
 		MaskFormatter mascaraCNPJ;
@@ -163,6 +169,8 @@ public class Concedente extends JPanel {
 			e.printStackTrace();
 		}
 		
+		///FIM DA ADIÇÃO DE MAKS NOS TEXTFIELD
+		
 		textFieldEstado = new JTextField();
 		textFieldEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldEstado, "cell 4 7 2 1,growx");
@@ -173,16 +181,9 @@ public class Concedente extends JPanel {
 		panelPrincipal.add(textFieldBairro, "cell 4 9 2 1,growx");
 		textFieldBairro.setColumns(10);
 		
-
-		
 		JLabel labelRepresentante = new JLabel("Representante");
 		labelRepresentante.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		panelPrincipal.add(labelRepresentante, "flowx,cell 1 3, spanx 2");
-		
-		//textFieldCNPJ = new JTextField();
-		//textFieldCNPJ.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		//panelPrincipal.add(textFieldCNPJ, "cell 4 1 2 1,growx");
-		//textFieldCNPJ.setColumns(10);
 		
 		textFieldRepresentante = new JTextField();
 		textFieldRepresentante.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -190,6 +191,7 @@ public class Concedente extends JPanel {
 		textFieldRepresentante.setColumns(10);
 
 	}
+	//GETTERS E SETTERS
 
 	public JTextField getTextFieldRazaoSocial() {
 		return textFieldRazaoSocial;

@@ -55,6 +55,8 @@ public class Estagiario extends JPanel {
 		JPanel panelBotoes = new JPanel();
 		add(panelBotoes, BorderLayout.SOUTH);
 		
+		//INICIO BOTOES
+		
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setIcon(new ImageIcon(Concedente.class.getResource("/icones_logos/add-documents (1).png")));
 		btnCadastrar.setBackground(new Color(102, 204, 255));
@@ -79,6 +81,8 @@ public class Estagiario extends JPanel {
 		btnRemover.setIcon(new ImageIcon(Concedente.class.getResource("/icones_logos/trash32.png")));
 		btnRemover.setBackground(new Color(102, 204, 255));
 		panelBotoes.add(btnRemover);
+		
+		//FIM BOTOES
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(135, 206, 235)));
@@ -140,6 +144,8 @@ public class Estagiario extends JPanel {
 		panelPrincipal.add(textFieldCidade, "cell 1 10 2 1,growx");
 		textFieldCidade.setColumns(10);
 		
+		//USANDO MASKS NOS TEXTFIELD
+		
 		MaskFormatter mascaraCEP;
 		MaskFormatter mascaraTelefone;
 		MaskFormatter mascaraCPF;
@@ -175,6 +181,8 @@ public class Estagiario extends JPanel {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
+		//FIM MASKS NOS TEXTFIELD
 		
 		textFieldEndereco = new JTextField();
 		textFieldEndereco.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -217,11 +225,15 @@ public class Estagiario extends JPanel {
 		panelPrincipal.add(textFieldIngresso, "cell 4 12 2 1,growx");
 		textFieldIngresso.setColumns(10);
 		
+		//ADICIONANDO RABIOLABEL EM UM GRUPO PARA SOMENTE PODER SELECIONAR UMA OPÇAO
+		
 		botaoGrupo = new ButtonGroup();
 		botaoGrupo.add(radioFeminino);
 		botaoGrupo.add(radioMasculino);
 
 	}
+	
+	//GETTERS E SETTERS
 
 	public JTextField getTextFieldRazaoSocial() {
 		return textFieldNome;
