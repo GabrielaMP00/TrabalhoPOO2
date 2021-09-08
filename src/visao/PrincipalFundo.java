@@ -20,8 +20,9 @@ public class PrincipalFundo extends JPanel {
 		setBounds(100, 100, 950, 550);
 		setBackground(new Color(240, 250, 255));
 		JLabel planoDeFundo = new JLabel("");
+		planoDeFundo.setBackground(new Color(240, 248, 255));
 		planoDeFundo.setHorizontalAlignment(SwingConstants.CENTER);
-		planoDeFundo.setIcon(new ImageIcon(PrincipalFundo.class.getResource("/icones_logos/fundo-transparente.png")));
+		planoDeFundo.setIcon(new ImageIcon(PrincipalFundo.class.getResource("/icones_logos/fundo950500.png")));
 		add(planoDeFundo, "name_55042083975000");
 
 	}

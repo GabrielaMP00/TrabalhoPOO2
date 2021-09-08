@@ -47,7 +47,8 @@ public class JanelaPrincipal extends JFrame {
 		setJMenuBar(menuBar);
 		
 		menuLogon = new JMenu("Logon");
-		menuLogon.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuLogon.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/login.png")));
+		menuLogon.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		menuBar.add(menuLogon);
 		
 		itemAutenticar = new JMenuItem("Autenticar");
@@ -72,7 +73,8 @@ public class JanelaPrincipal extends JFrame {
 		menuLogon.add(itemSair);
 		
 		menuGerenciar = new JMenu("Gerenciar");
-		menuGerenciar.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuGerenciar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/touch-screen.png")));
+		menuGerenciar.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		menuBar.add(menuGerenciar);
 		menuGerenciar.setEnabled(false);
 		
@@ -145,7 +147,7 @@ public class JanelaPrincipal extends JFrame {
 			}
 		});
 		
-		botaoVoltar.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		botaoVoltar.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		botaoVoltar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/back.png")));
 		botaoVoltar.setHorizontalAlignment(SwingConstants.RIGHT);
 		menuBar.add(botaoVoltar);
