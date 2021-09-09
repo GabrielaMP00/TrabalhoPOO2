@@ -31,7 +31,7 @@ public class TermoCompromissoDAO {
 		ConexaoMySQL.abrirConexaoMySQL();
 		con = ConexaoMySQL.getConnection();
 		sql = "SELECT e.nome, c.curso, c.orientador, c.universidade, c.representante " + "FROM estagiario e"
-				+ " INNER JOIN curso c " + "ON c.idCurso = e.idCurso "+"WHERE e.cpf = ?";
+				+ " INNER JOIN curso c " + "ON c.idCurso = e.idCurso " + "WHERE e.cpf = ?";
 
 		try {
 			prepS = con.prepareStatement(sql);
@@ -45,7 +45,8 @@ public class TermoCompromissoDAO {
 				nomeUniversidade = res.getString(4);
 				nomeRepresentanteUniversidade = res.getString(5);
 			}
-			TermoModel termo = new TermoModel(nomeAluno, nomeAluno, nomeCurso, nomeOrientador, nomeUniversidade, nomeRepresentanteUniversidade);
+			TermoModel termo = new TermoModel(nomeAluno, nomeAluno, nomeCurso, nomeOrientador, nomeUniversidade,
+					nomeRepresentanteUniversidade);
 			ConexaoMySQL.fecharConexao();
 			return termo;
 		} catch (SQLException e1) {
@@ -55,9 +56,9 @@ public class TermoCompromissoDAO {
 			return null;
 		}
 	}
-	
+
 	public TermoModel consultaConcendente(String cnpj) {
-		
+
 		PreparedStatement prepS = null;
 		String razaoSocial = null;
 		String nomeRepresentanteEmpresa = null;
@@ -66,7 +67,7 @@ public class TermoCompromissoDAO {
 
 		ConexaoMySQL.abrirConexaoMySQL();
 		con = ConexaoMySQL.getConnection();
-		sql = "SELECT c.razaoSocial, c.representante" + " FROM concendente c" +" WHERE c.cnpj = ?";
+		sql = "SELECT c.razaoSocial, c.representante" + " FROM concendente c" + " WHERE c.cnpj = ?";
 
 		try {
 			prepS = con.prepareStatement(sql);
@@ -88,37 +89,32 @@ public class TermoCompromissoDAO {
 		}
 	}
 
-
-	public boolean cadastrar(TermoModel termo) {
+	public boolean cadastrar(TermoModel termo) throws Exception {
 		PreparedStatement prepS = null;
 		String sql;
 
 		ConexaoMySQL.abrirConexaoMySQL();
 		con = ConexaoMySQL.getConnection();
 
-		sql = "Insert into termodecompromisso values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql = "Insert into termodecompromisso (idCurso,idEstagiario,idConcendente,dataInicio,"
+				+ "dataFim,horarioFim,horarioInicio,chSemanal,chDiaria,beneficios,area,atividades,infoComplementar) "
+				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			prepS = con.prepareStatement(sql);
-			prepS.setString(1, termo.getInicioEstagio());
-			prepS.setString(2, termo.getFimFstagio());
-			prepS.setString(3, termo.getChDiaria()); // 8
-			prepS.setString(4, termo.getChSemanal()); //
-			prepS.setString(5, termo.getAreEstagio());
-			prepS.setString(6, termo.getHoraInicioAtividadesEstagio());
-			prepS.setString(7, termo.getHoraFimAtividadesEstagio());
-			prepS.setString(8, termo.getPrincipaisAtividades());
-			prepS.setString(9, termo.getValorBolsa());
+			prepS.setInt(1, getCursoIdByCPF(termo.getCpfAluno()));
+			prepS.setInt(2, getAlunoIdByCPF(termo.getCpfAluno()));
+			prepS.setInt(3, getConcendenteIdByCNPJ(termo.getCnpjConcedente()));
+			prepS.setString(4, termo.getInicioEstagio());
+			prepS.setString(5, termo.getFimFstagio());
+			prepS.setString(6, termo.getHoraFimAtividadesEstagio());
+			prepS.setString(7, termo.getHoraInicioAtividadesEstagio());
+			prepS.setString(8, termo.getChSemanal());
+			prepS.setString(9, termo.getChDiaria());
 			prepS.setString(10, termo.getBeneficios());
-			prepS.setString(11, termo.getCpfAluno());
-			prepS.setString(12, termo.getCnpjConcedente());
-			prepS.setString(13, termo.getNomeAluno());
-			prepS.setString(14, termo.getNomeCurso());
-			prepS.setString(15, termo.getNomeOrientador());
-			prepS.setString(16, termo.getNomeUniversidade());
-			prepS.setString(17, termo.getNomeRepresentanteUniversidade());
-			prepS.setString(18, termo.getRazaSocialEmpresaConcedente());
-			prepS.setString(19, termo.getNomeRepresentanteEmpresaConcedenteEstagio());
+			prepS.setString(11, termo.getAreEstagio());	
+			prepS.setString(12, termo.getPrincipaisAtividades());
+			prepS.setString(13, "");	
 			prepS.executeUpdate();
 
 		} catch (SQLException e1) {
@@ -187,6 +183,103 @@ public class TermoCompromissoDAO {
 			e1.printStackTrace();
 			return false;
 		}
+
+	}
+
+	public int getCursoIdByCPF(String cpf) throws Exception {
+		PreparedStatement prepS = null;
+		String cnpj = null;
+		ResultSet res;
+		String sql;
+		ConexaoMySQL.abrirConexaoMySQL();
+		con = ConexaoMySQL.getConnection();
+		sql = "SELECT c.idCurso " + "FROM estagiario e" + " INNER JOIN curso c " + "ON c.idCurso = e.idCurso "
+				+ "WHERE e.cpf = ?";
+
+		try {
+			prepS = con.prepareStatement(sql);
+			prepS.setString(1, cpf);
+			res = prepS.executeQuery();
+			if (res.next()) {
+				return res.getInt(1);
+			}
+
+			else {
+				
+				throw new Exception();
+			}
+
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		ConexaoMySQL.fecharConexao();
+		return 0;
+
+	}
+
+	public int getAlunoIdByCPF(String cpf) throws Exception {
+		PreparedStatement prepS = null;
+		String cnpj = null;
+		ResultSet res;
+		String sql;
+		ConexaoMySQL.abrirConexaoMySQL();
+		con = ConexaoMySQL.getConnection();
+		sql = "SELECT e.idEstagiario " + "FROM estagiario e" + " INNER JOIN curso c " + "ON c.idCurso = e.idCurso "
+				+ "WHERE e.cpf = ?";
+
+		try {
+			prepS = con.prepareStatement(sql);
+			prepS.setString(1, cpf);
+			res = prepS.executeQuery();
+			if (res.next()) {
+				return res.getInt(1);
+			}
+
+			else {
+				
+				throw new Exception();
+			}
+
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		ConexaoMySQL.fecharConexao();
+
+		return 0;
+	}
+
+	public int getConcendenteIdByCNPJ(String cnpj) throws Exception {
+		PreparedStatement prepS = null;
+
+		ResultSet res;
+		String sql;
+		ConexaoMySQL.abrirConexaoMySQL();
+		con = ConexaoMySQL.getConnection();
+		sql = "SELECT c.idConcendente " + "FROM concendente c" + " WHERE c.cnpj = ?";
+		int result = 0;
+		try {
+			prepS = con.prepareStatement(sql);
+			prepS.setString(1, cnpj);
+			res = prepS.executeQuery();
+			if (res.next()) {
+				result = res.getInt(1);
+				ConexaoMySQL.fecharConexao();
+				return result;
+			}
+
+			else {
+				ConexaoMySQL.fecharConexao();
+				throw new Exception();
+			}
+
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		return 0;
 
 	}
 

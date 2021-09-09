@@ -76,7 +76,7 @@ public class JanelaPrincipal extends JFrame {
 		menuGerenciar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/touch-screen.png")));
 		menuGerenciar.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		menuBar.add(menuGerenciar);
-		//menuGerenciar.setEnabled(false);
+		menuGerenciar.setEnabled(false);
 		
 		itemEstagiario = new JMenuItem("Estagi\u00E1rio");
 		itemEstagiario.addActionListener(new ActionListener() {

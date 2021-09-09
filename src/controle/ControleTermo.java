@@ -105,7 +105,12 @@ public class ControleTermo implements ActionListener, KeyListener{
 					TermoModel.setNomeUniversidade(this.telaTermo.getTextFieldUniversidade().getText());
 					TermoModel.setValorBolsa(this.telaTermo.getFormattedTextFieldValor().getText());
 
-					TermoCompromissoDAO.cadastrar(TermoModel);
+					try {
+						TermoCompromissoDAO.cadastrar(TermoModel);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					
 					JOptionPane.showMessageDialog(telaTermo, "Cadastro efetuado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/check.png")));
 				}
