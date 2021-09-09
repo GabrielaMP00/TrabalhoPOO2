@@ -27,7 +27,7 @@ public class JanelaPrincipal extends JFrame {
 	
 	private CardLayout card;
 	private JPanel contentPane;
-	private Logon login;
+	private Login login;
 	private Estagiario estagiario;
 	private PrincipalFundo principal;
 	private Curso curso;
@@ -76,7 +76,7 @@ public class JanelaPrincipal extends JFrame {
 		menuGerenciar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/touch-screen.png")));
 		menuGerenciar.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		menuBar.add(menuGerenciar);
-		menuGerenciar.setEnabled(false);
+		//menuGerenciar.setEnabled(false);
 		
 		itemEstagiario = new JMenuItem("Estagi\u00E1rio");
 		itemEstagiario.addActionListener(new ActionListener() {
@@ -162,7 +162,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setLayout(card);
 		
 		principal = new PrincipalFundo();
-		login = new Logon();
+		login = new Login();
 		curso = new Curso();
 		termo = new TermoDeCompromisso();
 		concedente = new Concedente();
@@ -193,11 +193,11 @@ public class JanelaPrincipal extends JFrame {
 		this.card = card;
 	}
 
-	public Logon getLogin() {
+	public Login getLogin() {
 		return login;
 	}
 
-	public void setLogin(Logon login) {
+	public void setLogin(Login login) {
 		this.login = login;
 	}
 

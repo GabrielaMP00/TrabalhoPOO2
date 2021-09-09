@@ -24,7 +24,6 @@ import javax.swing.UIManager;
 
 public class TermoDeCompromisso extends JPanel {
 	
-	
 	private JTextField textFieldChSemanal;
 	private JTextField textFieldBeneficios;
 	private JTextField textFieldCurso;
@@ -38,6 +37,8 @@ public class TermoDeCompromisso extends JPanel {
 	private JTextField textFieldInfoComplementares;
 	private JTextField textFieldOrientador;
 	private JTextField textFieldRazaoSocial;
+	private JTextField textFieldCpfAluno;
+	private JTextField textFieldCnpjEmpresa;
 	private JButton btnCadastrar;
 	private JButton btnAtualizar;
 	private JButton btnConsultar;
@@ -47,10 +48,8 @@ public class TermoDeCompromisso extends JPanel {
 	private JFormattedTextField formattedTextFieldInicio;
 	private JFormattedTextField formattedTextFieldHorarioDeFim;
 	private JFormattedTextField formattedTextFieldFim;
-	private JFormattedTextField formattedTextFieldCnpjEmpresa;
 	private JFormattedTextField formattedTextFieldHorarioDeInicio;
 	private JFormattedTextField formattedTextFieldValor;
-	private JFormattedTextField formattedTextFieldCpfAluno;
 	/**
 	 * Create the panel.
 	 */
@@ -197,6 +196,7 @@ public class TermoDeCompromisso extends JPanel {
 		textFieldCurso.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldCurso, "cell 1 9,growx");
 		textFieldCurso.setColumns(10);
+		textFieldCurso.setEditable(false);
 		
 		textFieldAtividades = new JTextField();
 		textFieldAtividades.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -207,11 +207,13 @@ public class TermoDeCompromisso extends JPanel {
 		textFieldNomeAluno.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldNomeAluno, "cell 3 7,growx");
 		textFieldNomeAluno.setColumns(10);
+		textFieldNomeAluno.setEditable(false);
 		
 		textFieldUniversidade = new JTextField();
 		textFieldUniversidade.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldUniversidade, "cell 3 9,growx");
 		textFieldUniversidade.setColumns(10);
+		textFieldUniversidade.setEditable(false);
 		
 		textFieldChDiaria = new JTextField();
 		textFieldChDiaria.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -227,52 +229,60 @@ public class TermoDeCompromisso extends JPanel {
 		textFieldOrientador.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldOrientador, "cell 3 11 3 1,growx");
 		textFieldOrientador.setColumns(10);
+		textFieldOrientador.setEditable(false);
 		
 		textFieldRazaoSocial = new JTextField();
 		textFieldRazaoSocial.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldRazaoSocial, "cell 5 9,growx");
 		textFieldRazaoSocial.setColumns(10);
+		textFieldRazaoSocial.setEditable(false);
 		
 		textFieldRepresentanteUniversidade = new JTextField();
 		textFieldRepresentanteUniversidade.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldRepresentanteUniversidade, "cell 1 13 5 1,growx");
 		textFieldRepresentanteUniversidade.setColumns(10);
+		textFieldRepresentanteUniversidade.setEditable(false);
 		
 		textFieldRepresentanteEmpresa = new JTextField();
 		textFieldRepresentanteEmpresa.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldRepresentanteEmpresa, "cell 1 15 5 1,grow");
 		textFieldRepresentanteEmpresa.setColumns(10);
+		textFieldRepresentanteEmpresa.setEditable(false);
 		
 		textFieldInfoComplementares = new JTextField();
 		textFieldInfoComplementares.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelPrincipal.add(textFieldInfoComplementares, "cell 1 17 5 1,growx");
 		textFieldInfoComplementares.setColumns(10);
 		
-		// ADICIONANDO MASCARA NOS TEXTFIELDS QUE POSSUEM FORMATAÇÃO
+		textFieldCnpjEmpresa = new JTextField();
+		textFieldCnpjEmpresa.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panelPrincipal.add(textFieldCnpjEmpresa, "cell 1 11,growx");
+		textFieldCnpjEmpresa.setColumns(10);
+		
+		textFieldCpfAluno = new JTextField();
+		textFieldCpfAluno.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		panelPrincipal.add(textFieldCpfAluno, "cell 5 7,growx");
+		textFieldCpfAluno.setColumns(10);
+		
+		// ADICIONANDO MASCARA NOS TEXTFIELDS QUE POSSUEM FORMATA\C7\C3O
 		
 		MaskFormatter mascaraInicio;
 		MaskFormatter mascaraHorarioDeFim;
 		MaskFormatter mascaraFim;
-		MaskFormatter mascaraCnpjEmpresa;
 		MaskFormatter mascaraHorarioDeInicio;
 		MaskFormatter mascaraValor;
-		MaskFormatter mascaraCpfAluno;
 				
 		try {
 			mascaraInicio= new MaskFormatter("##/##/####");		 
 			mascaraInicio.setPlaceholder(" ");
 			mascaraHorarioDeFim = new MaskFormatter("##:##");
 			mascaraHorarioDeFim.setPlaceholder(" ");
-			mascaraFim= new MaskFormatter("##/##/####");		 
+			mascaraFim= new MaskFormatter("##:##");		 
 		    mascaraFim.setPlaceholder(" ");
-			mascaraCnpjEmpresa = new MaskFormatter("##.###.###/####-##");
-			mascaraCnpjEmpresa.setPlaceholder(" ");
 			mascaraHorarioDeInicio = new MaskFormatter("##:##");	 
 		    mascaraHorarioDeInicio.setPlaceholder(" ");
 			mascaraValor = new MaskFormatter("R$###");
 			mascaraValor.setPlaceholder(" ");
-			mascaraCpfAluno = new MaskFormatter("###.###.###-##");
-			mascaraCpfAluno.setPlaceholder(" ");
 			
 			formattedTextFieldInicio = new JFormattedTextField(mascaraInicio);
 			formattedTextFieldInicio.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -283,18 +293,12 @@ public class TermoDeCompromisso extends JPanel {
 			formattedTextFieldFim = new JFormattedTextField(mascaraFim);
 			formattedTextFieldFim.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			panelPrincipal.add(formattedTextFieldFim, "cell 3 1,growx");
-			formattedTextFieldCnpjEmpresa = new JFormattedTextField(mascaraCnpjEmpresa);
-			formattedTextFieldCnpjEmpresa.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldCnpjEmpresa, "cell 1 11,growx");
 			formattedTextFieldHorarioDeInicio = new JFormattedTextField(mascaraHorarioDeInicio);
 			formattedTextFieldHorarioDeInicio.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			panelPrincipal.add(formattedTextFieldHorarioDeInicio, "cell 5 3,growx");
 			formattedTextFieldValor = new JFormattedTextField(mascaraValor);
 			formattedTextFieldValor.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			panelPrincipal.add(formattedTextFieldValor, "cell 5 5,growx");
-			formattedTextFieldCpfAluno = new JFormattedTextField(mascaraCpfAluno);
-			formattedTextFieldCpfAluno.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			panelPrincipal.add(formattedTextFieldCpfAluno, "cell 5 7,growx");
 
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -435,13 +439,23 @@ public class TermoDeCompromisso extends JPanel {
 	public void setFormattedTextFieldFim(JFormattedTextField formattedTextFieldFim) {
 		this.formattedTextFieldFim = formattedTextFieldFim;
 	}
-	public JFormattedTextField getFormattedTextFieldCnpjEmpresa() {
-		return formattedTextFieldCnpjEmpresa;
+
+	public JTextField getTextFieldCpfAluno() {
+		return textFieldCpfAluno;
 	}
-	public void setFormattedTextFieldCnpjEmpresa(
-			JFormattedTextField formattedTextFieldCnpjEmpresa) {
-		this.formattedTextFieldCnpjEmpresa = formattedTextFieldCnpjEmpresa;
+
+	public void setTextFieldCpfAluno(JTextField textFieldCpfAluno) {
+		this.textFieldCpfAluno = textFieldCpfAluno;
 	}
+
+	public JTextField getTextFieldCnpjEmpresa() {
+		return textFieldCnpjEmpresa;
+	}
+
+	public void setTextFieldCnpjEmpresa(JTextField textFieldCnpjEmpresa) {
+		this.textFieldCnpjEmpresa = textFieldCnpjEmpresa;
+	}
+
 	public JFormattedTextField getFormattedTextFieldHorarioDeInicio() {
 		return formattedTextFieldHorarioDeInicio;
 	}
@@ -456,15 +470,9 @@ public class TermoDeCompromisso extends JPanel {
 			JFormattedTextField formattedTextFieldValor) {
 		this.formattedTextFieldValor = formattedTextFieldValor;
 	}
-	public JFormattedTextField getFormattedTextFieldCpfAluno() {
-		return formattedTextFieldCpfAluno;
-	}
-	public void setFormattedTextFieldCpfAluno(
-			JFormattedTextField formattedTextFieldCpfAluno) {
-		this.formattedTextFieldCpfAluno = formattedTextFieldCpfAluno;
-	}
 	
-	//FUNÇAO LIMPAR CAMPOS 
+	
+	//FUN\C7AO LIMPAR CAMPOS 
 		
 	public void limparTermo() {
 			getFormattedTextFieldInicio().setText("");
@@ -473,17 +481,18 @@ public class TermoDeCompromisso extends JPanel {
 			getTextFieldBeneficios().setText("");
 			getTextFieldCurso().setText("");
 			getTextFieldRepresentanteUniversidade().setText("");
+			getTextFieldRepresentanteEmpresa().setText("");
 			getFormattedTextFieldFim().setText("");
 			getTextFieldChDiaria().setText("");
 			getTextFieldArea().setText("");
 			getTextFieldAtividades().setText("");
 			getTextFieldNomeAluno().setText("");
 			getTextFieldUniversidade().setText("");
-			getFormattedTextFieldCnpjEmpresa().setText("");
+			getTextFieldCnpjEmpresa().setText("");
 			getTextFieldInfoComplementares().setText("");
 			getFormattedTextFieldHorarioDeInicio().setText("");
 			getFormattedTextFieldValor().setText("");
-			getFormattedTextFieldCpfAluno().setText("");
+			getTextFieldCpfAluno().setText("");
 			getTextFieldOrientador().setText("");
 			getTextFieldRazaoSocial().setText("");
 		}

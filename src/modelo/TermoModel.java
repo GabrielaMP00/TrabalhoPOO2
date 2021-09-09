@@ -5,13 +5,13 @@ public class TermoModel {
 	private int idTermoModel;
 	private String inicioEstagio;
 	private String fimFstagio;
-	private int chDiaria;
-	private int chSemanal;
+	private String chDiaria;
+	private String chSemanal;
 	private String areEstagio;
 	private String horaInicioAtividadesEstagio;
 	private String horaFimAtividadesEstagio;
 	private String principaisAtividades;
-	private int valorBolsa;
+	private String valorBolsa;
 	private String beneficios;
 	private String cpfAluno;
 	private String cnpjConcedente; 
@@ -25,9 +25,9 @@ public class TermoModel {
 	
 	
 	
-	public TermoModel(String inicioEstagio, String fimFstagio, int chDiaria, int chSemanal,
+	public TermoModel(String inicioEstagio, String fimFstagio, String chDiaria, String chSemanal,
 			String areEstagio, String horaInicioAtividadesEstagio, String horaFimAtividadesEstagio,
-			String principaisAtividades, int valorBolsa, String beneficios, String cpfAluno, String cnpjConcedente,
+			String principaisAtividades, String valorBolsa, String beneficios, String cpfAluno, String cnpjConcedente,
 			String nomeAluno, String nomeCurso, String nomeOrientador, String nomeUniversidade,
 			String nomeRepresentanteUniversidade, String razaSocialEmpresaConcedente,
 			String nomeRepresentanteEmpresaConcedenteEstagio, int idTermoModel) {
@@ -52,6 +52,21 @@ public class TermoModel {
 		this.razaSocialEmpresaConcedente = razaSocialEmpresaConcedente;
 		this.nomeRepresentanteEmpresaConcedenteEstagio = nomeRepresentanteEmpresaConcedenteEstagio;
 		this.idTermoModel = idTermoModel;
+	}
+	
+	public TermoModel(String cpfAluno,String nomeAluno, String nomeCurso, String nomeOrientador, String nomeUniversidade,
+			String nomeRepresentanteUniversidade) {
+		this.cpfAluno = cpfAluno;
+		this.nomeAluno = nomeAluno;
+		this.nomeCurso = nomeCurso;
+		this.nomeOrientador = nomeOrientador;
+		this.nomeUniversidade = nomeUniversidade;
+		this.nomeRepresentanteUniversidade = nomeRepresentanteUniversidade;
+	}
+	
+	public TermoModel(String razaSocialEmpresaConcedente,String nomeRepresentanteEmpresaConcedenteEstagio) {
+		this.razaSocialEmpresaConcedente = razaSocialEmpresaConcedente;
+		this.nomeRepresentanteEmpresaConcedenteEstagio = nomeRepresentanteEmpresaConcedenteEstagio;
 	}
 	
 	public TermoModel() {
@@ -83,23 +98,23 @@ public class TermoModel {
 	}
 
 
-	public int getChDiaria() {
+	public String getChDiaria() {
 		return chDiaria;
 	}
 
-	public void setChDiaria(int chDiaria) {
+	public void setChDiaria(String chDiaria) {
 		this.chDiaria = chDiaria;
 	}
 
-	public int getChSemanal() {
+	public String getChSemanal() {
 		return chSemanal;
 	}
 
-	public void setChSemanal(int chSemanal) {
+	public void setChSemanal(String chSemanal) {
 		this.chSemanal = chSemanal;
 	}
 
-	public void setValorBolsa(int valorBolsa) {
+	public void setValorBolsa(String valorBolsa) {
 		this.valorBolsa = valorBolsa;
 	}
 
@@ -135,7 +150,7 @@ public class TermoModel {
 		this.principaisAtividades = principaisAtividades;
 	}
 
-	public int getValorBolsa() {
+	public String getValorBolsa() {
 		return valorBolsa;
 	}
 

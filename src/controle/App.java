@@ -4,14 +4,14 @@ import dao.ConexaoMySQL;
 import modelo.AutenticacaoUsuario;
 import modelo.TermoModel;
 import visao.JanelaPrincipal;
-import visao.Logon;
+import visao.Login;
 import visao.TermoDeCompromisso;
 
 public class App {
 	
 	public static void main(String[] args) {
 		
-		Logon login = new Logon();
+		Login login = new Login();
 		JanelaPrincipal jp = new JanelaPrincipal();
 		AutenticacaoUsuario au = new AutenticacaoUsuario();
 		
@@ -26,3 +26,4 @@ public class App {
 		ConexaoMySQL.configConnection("localhost", "trabalhofinalpoo2", "gabi", "123456", 3306);
 	}
 }
+

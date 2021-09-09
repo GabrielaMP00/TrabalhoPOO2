@@ -2,33 +2,31 @@ package controle;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
-import dao.Dao;
+import dao.AutenticarDao;
 import modelo.AutenticacaoUsuario;
 import visao.JanelaPrincipal;
-import visao.Logon;
+import visao.Login;
 
 	
 public class ControleAutenticar implements ActionListener {
 	private AutenticacaoUsuario autenticacao;
 	private JanelaPrincipal janelaPrincipal;
-	private Logon login;
-	private Dao dao;
+	private Login logon;
+	private AutenticarDao dao;
 	
 	//incializando as classes e adicionando listeners nos botões
-	public ControleAutenticar(AutenticacaoUsuario autenticacao, JanelaPrincipal janelaPrincipal, Logon login) {
+	public ControleAutenticar(AutenticacaoUsuario autenticacao, JanelaPrincipal janelaPrincipal, Login logon) {
 		super();
 		this.autenticacao = autenticacao;
 		this.janelaPrincipal = janelaPrincipal;
-		this.login = login;	
+		this.logon = janelaPrincipal.getLogin();	
 		this.janelaPrincipal.getLogin().getBtnLogin_Limpar().addActionListener(this);
 		this.janelaPrincipal.getLogin().getBtnLogin_Entrar().addActionListener(this);
 		this.janelaPrincipal.getItemSair().addActionListener(this);
 		
-		dao = new Dao();
+		dao = new AutenticarDao();
 		
 		}
 	
@@ -53,18 +51,16 @@ public class ControleAutenticar implements ActionListener {
 			//faz a autenticação do usuário, habilita menu gerenciar ao realizar login com sucesso
 			//mostra mensagens de falha ou sucesso de login
 			if(e.getActionCommand().equals("Entrar")) {
-				autenticacao.setUsuario(login.getTextField_Usuario().getText());
-				autenticacao.setSenha(login.getTextField_Senha().getText());
-					
-				try {
-					dao.autenticarUsuario(autenticacao);
-					janelaPrincipal.getMenuGerenciar().setEnabled(true);
-					JOptionPane.showMessageDialog(login, "Login realizado com sucesso!", "Login Efetuado", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/check.png")));
-				} catch (Exception e2) {
-						// TODO: handle exception
-					JOptionPane.showMessageDialog(login,"Falha ao realizar login!","Erro",JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/close.png")));
-				}
-					
+				System.out.println("CAMPOS"+janelaPrincipal.getLogin().getTextField_Usuario().getText()+janelaPrincipal.getLogin().getTextField_Senha().getText());
+				autenticacao.setUsuario(logon.getTextField_Usuario().getText());
+				autenticacao.setSenha(logon.getTextField_Senha().getText());
+					if(dao.autenticarUsuario(autenticacao)) {
+						janelaPrincipal.getMenuGerenciar().setEnabled(true);
+						JOptionPane.showMessageDialog(logon, "Login realizado com sucesso!", "Login Efetuado", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/check.png")));
+					}else {
+						JOptionPane.showMessageDialog(logon,"Falha ao realizar login!","Erro",JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/icones_logos/close.png")));
+						
+					}
 			}
 		}
 	}
